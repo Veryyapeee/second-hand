@@ -29,6 +29,12 @@ const cvSchema = new mongoose.Schema({
         maxlength: 24,
         required: true,
     },
+    email: {
+        type: String,
+        minlength: 5,
+        maxlength: 50,
+        required: true,
+    },
     cv: {
         type: String,
         minlength: 3,
@@ -52,7 +58,7 @@ const townSchema = new mongoose.Schema({
         required: true,
     },
     cv: [
-        cvSchema
+        cvSchema,
     ]
 })
 

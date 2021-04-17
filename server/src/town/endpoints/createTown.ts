@@ -1,10 +1,10 @@
 import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 
-import townModel from '../../models/town.model';
-import Town from '../../interfaces/town.interface';
+import townModel from '../../../models/town.model';
+import Town from '../../../interfaces/town.interface';
 
-import validateTown from './validateNewTown';
+import validateTown from '../validation/validateNewTown';
 
 const createNewTown = async (req: Request, res: Response) => {
 

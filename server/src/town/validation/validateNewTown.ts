@@ -1,5 +1,5 @@
 const Joi = require('joi-oid');
-import Town from '../../interfaces/town.interface';
+import Town from '../../../interfaces/town.interface';
 
 const validateTown = (townData: Town) => {
     const schema = Joi.object({

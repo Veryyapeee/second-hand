@@ -1,18 +1,19 @@
 import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 
-import townModel from '../../models/town.model';
-import Town, { Name } from '../../interfaces/town.interface';
+import townModel from '../../../models/town.model';
+import { Status } from '../../../interfaces/town.interface';
 
-import validateTownName from './validateTownName';
+import validateTownStatus from '../validation/validateTownStatus';
 
-const changeTownName = async (req: Request, res: Response) => {
+const changeRecruitingStatus = async (req: Request, res: Response) => {
 
-    const changedName: Name = {
+    const changedStatus: Status = {
         ...req.body,
     }
 
-    const { error } = validateTownName(changedName);
+    // Validate data
+    const { error } = validateTownStatus(changedStatus);
 
     if (error) res.status(StatusCodes.BAD_REQUEST).send(error.details[0].message);
 
@@ -26,4 +27,4 @@ const changeTownName = async (req: Request, res: Response) => {
     return res.status(StatusCodes.OK).send(town);
 }
 
-export default changeTownName;
+export default changeRecruitingStatus;

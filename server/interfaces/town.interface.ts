@@ -4,12 +4,19 @@ export interface ShopInTown {
 }
 
 export interface CV {
-    id: string;
-    cv: string;
+    _id?: String;
+    name: String;
+    lastName: String;
+    email: String;
+    cv: String;
 }
 
 export interface Name {
     name: String;
+}
+
+export interface Status {
+    recruiting: Boolean;
 }
 
 export default interface Town {
