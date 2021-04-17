@@ -32,3 +32,16 @@ Content-Type: application/json
 {
     "recruiting": false
 }
+
+###
+# Add CV in Postman to load the file
+
+###
+# Remove CV
+
+PUT http://localhost:5000/town/607ab1e8236e672234117aa3/removeCv HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": "607b71c8446e7051e0cd81ad"
+}

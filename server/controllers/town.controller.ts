@@ -1,28 +1,15 @@
-const multer = require('multer');
-import { v4 as uuidv4 } from 'uuid';
-import express, { NextFunction, Request, Response } from 'express';
+import express, { Request, Response } from 'express';
 
 import createNewTown from '../src/town/endpoints/createTown';
 import changeTownName from '../src/town/endpoints/changeTownName';
 import changeTownRecruitingStatus from '../src/town/endpoints/changeTownRecruitingStatus';
 import addCv from '../src/town/endpoints/addCv';
+import removeCv from '../src/town/endpoints/removeCv';
 
 import getAllTowns from '../middleware/getAllTowns';
 import getSingleTown from '../middleware/getSingleTown';
 
-// Setup multer for CV file
-const storage = multer.diskStorage({
-    destination: function (req: Request, file: Express.Multer.File, callback: (error: Error | null, destination: string) => void) {
-        callback(null, './static/upload/cv');
-    },
-    filename: function (req: Request, file: Express.Multer.File, callback: (error: Error | null, filename: string) => void) {
-        const guId = uuidv4();
-        callback(null, `${guId}_${file.originalname}`)
-    }
-})
-
-const upload = multer({ storage: storage });
-
+import uploadCv from '../utils/cvFile';
 export default class TownController {
     public path = `/town`;
     public router = express.Router();
@@ -35,7 +22,8 @@ export default class TownController {
         this.router.post(this.path, getAllTowns, this.createTown);
         this.router.put(`${this.path}/:townId/changeName`, getAllTowns, this.changeTownName);
         this.router.put(`${this.path}/:townId/changeStatus`, this.changeTownRecruitingStatus);
-        this.router.put(`${this.path}/:townId/addCv`, getSingleTown, upload.single('CV'), this.addCv);
+        this.router.put(`${this.path}/:townId/addCv`, getSingleTown, uploadCv.single('CV'), this.addCv);
+        this.router.put(`${this.path}/:townId/removeCv`, getSingleTown, this.removeCv);
     }
 
     createTown(req: Request, res: Response) {
@@ -50,7 +38,11 @@ export default class TownController {
         changeTownRecruitingStatus(req, res)
     }
 
-    addCv(req: Request, res: Response, next: NextFunction) {
+    addCv(req: Request, res: Response) {
         addCv(req, res);
+    }
+
+    removeCv(req: Request, res: Response) {
+        removeCv(req, res);
     }
 }
