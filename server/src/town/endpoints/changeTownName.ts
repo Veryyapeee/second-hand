@@ -7,7 +7,7 @@ import { Name } from '../../../interfaces/town.interface';
 import validateTownName from '../validation/validateTownName';
 
 const changeTownName = async (req: Request, res: Response) => {
-
+    // Create object
     const changedName: Name = {
         ...req.body,
     }

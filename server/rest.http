@@ -12,6 +12,17 @@ Content-Type: application/json
     "recruiting": true
 }
 
+###
+# Get all towns
+
+GET http://localhost:5000/town HTTP/1.1
+
+
+###
+# Get single town info
+
+GET http://localhost:5000/town/607ac25dad2d8e4684dd452f HTTP/1.1
+
 
 ###
 # Change town name
@@ -43,5 +54,5 @@ PUT http://localhost:5000/town/607ab1e8236e672234117aa3/removeCv HTTP/1.1
 Content-Type: application/json
 
 {
-    "id": "607b71c8446e7051e0cd81ad"
+    "id": "607c03cbafc1e411b4c7cdb8"
 }

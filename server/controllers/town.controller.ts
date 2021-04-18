@@ -5,6 +5,8 @@ import changeTownName from '../src/town/endpoints/changeTownName';
 import changeTownRecruitingStatus from '../src/town/endpoints/changeTownRecruitingStatus';
 import addCv from '../src/town/endpoints/addCv';
 import removeCv from '../src/town/endpoints/removeCv';
+import getTownInfo from '../src/town/endpoints/getTownInfo';
+import getTowns from '../src/town/endpoints/getAllTowns';
 
 import getAllTowns from '../middleware/getAllTowns';
 import getSingleTown from '../middleware/getSingleTown';
@@ -20,6 +22,8 @@ export default class TownController {
 
     initializeRoutes() {
         this.router.post(this.path, getAllTowns, this.createTown);
+        this.router.get(this.path, getAllTowns, this.getTowns);
+        this.router.get(`${this.path}/:townId`, getSingleTown, this.getTownInfo);
         this.router.put(`${this.path}/:townId/changeName`, getAllTowns, this.changeTownName);
         this.router.put(`${this.path}/:townId/changeStatus`, this.changeTownRecruitingStatus);
         this.router.put(`${this.path}/:townId/addCv`, getSingleTown, uploadCv.single('CV'), this.addCv);
@@ -28,6 +32,14 @@ export default class TownController {
 
     createTown(req: Request, res: Response) {
         createNewTown(req, res);
+    }
+
+    getTowns(req: Request, res: Response) {
+        getTowns(req, res);
+    }
+
+    getTownInfo(req: Request, res: Response) {
+        getTownInfo(req, res);
     }
 
     changeTownName(req: Request, res: Response) {

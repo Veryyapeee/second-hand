@@ -4,7 +4,7 @@ export interface ShopInTown {
 }
 
 export interface CV {
-    _id?: String;
+    _id?: String | undefined;
     name: String;
     lastName: String;
     email: String;
@@ -20,9 +20,9 @@ export interface Status {
 }
 
 export default interface Town {
-    _id?: String;
+    _id: String;
     name: String;
-    shops?: ShopInTown[];
+    shops: ShopInTown[];
     recruiting: Boolean;
-    cv?: CV[];
+    cv: CV[];
 }

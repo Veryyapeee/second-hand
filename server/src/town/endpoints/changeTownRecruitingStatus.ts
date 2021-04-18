@@ -7,7 +7,7 @@ import { Status } from '../../../interfaces/town.interface';
 import validateTownStatus from '../validation/validateTownStatus';
 
 const changeRecruitingStatus = async (req: Request, res: Response) => {
-
+    // Create object
     const changedStatus: Status = {
         ...req.body,
     }

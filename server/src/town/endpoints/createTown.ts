@@ -7,7 +7,6 @@ import Town from '../../../interfaces/town.interface';
 import validateTown from '../validation/validateNewTown';
 
 const createNewTown = async (req: Request, res: Response) => {
-
     // Create town object
     const townData: Town = {
         ...req.body,

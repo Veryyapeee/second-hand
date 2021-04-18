@@ -13,8 +13,10 @@ const storage = multer.diskStorage({
 })
 
 // Filter extensions
-const fileFilter = (req: Request, file: Express.Multer.File, callback: any) => {
-    if (file.mimetype !== 'image/jpeg' && file.mimetype !== 'application/pdf' && file.mimetype !== 'image/png' && file.mimetype !== 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' && file.mimetype !== 'image/jpg') {
+const arrOfExtensions: string[] = ['image/jpeg', 'application/pdf', 'image/png', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'image/jpg']
+
+const fileFilter = (req: Request, file: Express.Multer.File, callback: (error: Error | null, check?: boolean) => void) => {
+    if (!arrOfExtensions.includes(file.mimetype)) {
         callback(null, false);
         return callback(new Error('Only .png, .jpeg, .jpg, .png, .docx'))
     } else {

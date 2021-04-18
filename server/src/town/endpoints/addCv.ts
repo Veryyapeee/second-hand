@@ -1,8 +1,7 @@
 import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 
-import townModel from '../../../models/town.model';
-import Town, { CV } from '../../../interfaces/town.interface';
+import { CV } from '../../../interfaces/town.interface';
 
 import validateNewCv from '../validation/validateNewCv';
 
@@ -24,9 +23,7 @@ const addCv = async (req: Request, res: Response) => {
     if (error) return res.status(StatusCodes.BAD_REQUEST).send(error.details[0].message);
 
     // Push CV to town object
-    if (town.cv) {
-        town.cv.push(addedCv);
-    }
+    town.cv.push(addedCv);
 
     //Save data
     await town.save();
