@@ -3,7 +3,6 @@ import { StatusCodes } from 'http-status-codes';
 
 import storeModel from '../../../models/store.model';
 import Store from '../../../interfaces/store.interface';
-import { ShopInTown } from '../../../interfaces/town.interface';
 
 import validateStore from '../validation/validateCreateStore';
 

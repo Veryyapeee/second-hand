@@ -4,6 +4,7 @@ import createStore from '../src/store/endpoints/createStore';
 import updateGallery from '../src/store/endpoints/gallery';
 
 import getSingleTown from '../middleware/getSingleTown';
+import getSingleStore from '../middleware/getSingleStore';
 
 import uploadGallery from '../middleware/storeGalleryFiles';
 
@@ -17,7 +18,7 @@ export default class StoreController {
 
     initializeRoutes() {
         this.router.post(this.path, getSingleTown, this.createStore);
-        this.router.put(`${this.router}/gallery`, uploadGallery.array('gallery'), this.updateGallery);
+        this.router.put(`${this.path}/:storeId/gallery`, getSingleStore, uploadGallery.array('gallery'), this.updateGallery);
     }
 
     createStore(req: Request, res: Response) {
