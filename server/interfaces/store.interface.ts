@@ -40,7 +40,8 @@ export interface StoreHistory {
     price: StorePrice;
     news: News[];
     gallery: String[];
-    user: String;
+    userName: String;
+    date: Date;
 }
 
 export default interface Store {

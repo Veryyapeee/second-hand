@@ -17,7 +17,7 @@ const addressSchema = new mongoose.Schema({
     }
 })
 
-const openHoursSchema = new mongoose.Schema({
+export const openHoursSchema = new mongoose.Schema({
     _id: false,
     monday: {
         type: String,
@@ -176,6 +176,11 @@ const historySchema = new mongoose.Schema({
     news: [newsSchema],
     gallery: {
         type: [String],
+        required: true,
+    },
+    date: {
+        type: Date,
+        default: Date.now(),
         required: true,
     }
 })
