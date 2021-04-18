@@ -95,3 +95,8 @@ Content-Type: application/json
 
 ### add/edit gallery
 # Postman to send files
+
+###
+# Get store information
+
+GET http://localhost:5000/town/607ab1e8236e672234117aa3/store/607c14735158a518c8edab6e HTTP/1.1
