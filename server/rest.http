@@ -100,3 +100,38 @@ Content-Type: application/json
 # Get store information
 
 GET http://localhost:5000/town/607ab1e8236e672234117aa3/store/607c14735158a518c8edab6e HTTP/1.1
+
+
+###
+# Change store information
+
+PUT http://localhost:5000/town/607ab1e8236e672234117aa3/store/607c14735158a518c8edab6e HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "wtf",
+    "description": "Sample description",
+    "address": {
+        "street": "srurne kurwa street"
+    },
+    "contact": "(+48) 123321123",
+    "openHours": {
+        "monday": "7:00 - 14:00",
+        "tuesday": "7:00 - 14:00",
+        "wednesday": "7:00 - 14:00",
+        "thursday": "7:00 - 14:00",
+        "friday": "7:00 - 14:00",
+        "saturday": "7:00 - 14:00",
+        "sunday": "7:00 - 14:00"
+    },
+    "suppDay": "Monday",
+    "price": {
+        "monday": 20,
+        "tuesday": 50,
+        "wednesday": 10,
+        "thursday": 15,
+        "friday": 2,
+        "saturday": 100,
+        "sunday": 8000
+    }
+}
