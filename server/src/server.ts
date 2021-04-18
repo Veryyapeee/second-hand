@@ -4,6 +4,7 @@ import App from "./app/App";
 import validateEnv from "./app/validateEnv";
 
 import TownController from '../controllers/town.controller';
+import StoreController from '../controllers/store.controller';
 
 // Check if private key exist
 if (!config.get("jwtPrivateKey")) {
@@ -18,6 +19,7 @@ validateEnv();
 const app = new App([
   // Adding all controllers
   new TownController(),
+  new StoreController(),
 ]);
 
 // Express app listen

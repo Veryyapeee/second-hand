@@ -11,7 +11,7 @@ import getTowns from '../src/town/endpoints/getAllTowns';
 import getAllTowns from '../middleware/getAllTowns';
 import getSingleTown from '../middleware/getSingleTown';
 
-import uploadCv from '../utils/cvFile';
+import uploadCv from '../middleware/cvFile';
 export default class TownController {
     public path = `/town`;
     public router = express.Router();

@@ -56,3 +56,42 @@ Content-Type: application/json
 {
     "id": "607c03cbafc1e411b4c7cdb8"
 }
+
+### Store
+
+###
+# Create store
+
+POST http://localhost:5000/town/607ab1e8236e672234117aa3/store HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Górne",
+    "description": "Sample description",
+    "address": {
+        "street": "Górne street"
+    },
+    "contact": "(+48) 123321123",
+    "openHours": {
+        "monday": "7:00 - 14:00",
+        "tuesday": "7:00 - 14:00",
+        "wednesday": "7:00 - 14:00",
+        "thursday": "7:00 - 14:00",
+        "friday": "7:00 - 14:00",
+        "saturday": "7:00 - 14:00",
+        "sunday": "7:00 - 14:00"
+    },
+    "suppDay": "Monday",
+    "price": {
+        "monday": 20,
+        "tuesday": 50,
+        "wednesday": 10,
+        "thursday": 15,
+        "friday": 2,
+        "saturday": 100,
+        "sunday": 8000
+    }
+}
+
+### add/edit gallery
+# Postman to send files
