@@ -1,11 +1,11 @@
 const Joi = require('joi-oid');
 
-const validateRemoveGallery = (picPath: { picPath: string }) => {
+const validateRemoveGallery = (pic: { id: string }) => {
     const schema = Joi.object({
-        picPath: Joi.string().required()
+        id: Joi.objectId().required()
     })
 
-    return schema.validate(picPath);
+    return schema.validate(pic);
 }
 
 export default validateRemoveGallery;

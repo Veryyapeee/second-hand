@@ -130,6 +130,15 @@ export const newsSchema = new mongoose.Schema({
     }
 })
 
+const gallerySchema = new mongoose.Schema({
+    path: {
+        type: String,
+        minlength: 3,
+        maxlength: 255,
+        required: true,
+    }
+})
+
 const historySchema = new mongoose.Schema({
     _id: false,
     userName: {
@@ -174,10 +183,9 @@ const historySchema = new mongoose.Schema({
         required: true,
     },
     news: [newsSchema],
-    gallery: {
-        type: [String],
-        required: true,
-    },
+    gallery: [
+        gallerySchema
+    ],
     date: {
         type: Date,
         default: Date.now(),
@@ -222,10 +230,9 @@ const storeSchema = new mongoose.Schema({
         required: true,
     },
     news: [newsSchema],
-    gallery: {
-        type: [String],
-        required: true,
-    },
+    gallery: [
+        gallerySchema
+    ],
     history: [
         historySchema
     ]

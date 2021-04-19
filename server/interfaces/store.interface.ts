@@ -29,6 +29,11 @@ export interface News {
     photo: String;
 }
 
+export interface Gallery {
+    _id?: String;
+    path: String;
+}
+
 export interface StoreHistory {
     id: String;
     name: String;
@@ -39,7 +44,7 @@ export interface StoreHistory {
     suppDay: String;
     price: StorePrice;
     news: News[];
-    gallery: String[];
+    gallery: Gallery[];
     userName: String;
     date: Date;
 }

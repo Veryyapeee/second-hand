@@ -8,7 +8,7 @@ const uploadGallery = async (req: Request, res: Response) => {
     // Get files paths and save
     const files: any = req.files;
     files.forEach((file: Express.Multer.File) => {
-        store.gallery.push(file.path);
+        store.gallery.push({ path: file.path });
     });
 
     await store.save();

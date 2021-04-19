@@ -143,5 +143,5 @@ PUT http://localhost:5000/town/607ab1e8236e672234117aa3/store/607c220405ae1c0764
 Content-Type: application/json
 
 {
-    "picPath":"static\\upload\\images\\ba51b930-2d08-4641-a47a-8d217c876701_photomode_21122020_194557.png"
+    "id": "607d625831a73b3ea849dc55"
 }

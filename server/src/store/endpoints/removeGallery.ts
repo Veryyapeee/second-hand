@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 
-import Store from '../../../interfaces/store.interface';
+import Store, { Gallery } from '../../../interfaces/store.interface';
 
 import validateRemoveGallery from '../validation/validateRemoveGallery';
 
@@ -15,10 +15,10 @@ const removeGallery = async (req: Request, res: Response) => {
     const { error } = validateRemoveGallery(req.body);
     if (error) return res.status(StatusCodes.BAD_REQUEST).send(error.details[0].message);
 
-    store.gallery.forEach(async (pic: String, index: number) => {
-        if (pic.toString() === req.body.picPath.toString()) {
+    store.gallery.forEach(async (pic: Gallery, index: number) => {
+        if (pic._id!.toString() === req.body.id.toString()) {
             store.gallery.splice(index, 1);
-            await unlink(pic);
+            await unlink(pic.path);
         }
     })
 
