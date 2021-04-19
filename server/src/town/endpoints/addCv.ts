@@ -6,6 +6,8 @@ import { CV } from '../../../interfaces/town.interface';
 import validateNewCv from '../validation/validateNewCv';
 
 const addCv = async (req: Request, res: Response) => {
+    // Check if file was provided
+    if (!req.file) return res.status(StatusCodes.BAD_REQUEST).send('No data provided');
     // Get town object
     const town = res.locals.town;
 
