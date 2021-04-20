@@ -5,6 +5,8 @@ import { News, Gallery } from '../../../interfaces/store.interface';
 
 import validateNews from '../validation/validateNewNews';
 
+import unlink from '../../../utils/unlink';
+
 const addNews = async (req: Request, res: Response) => {
     // Check if file was provided
     if (!req.file) return res.status(StatusCodes.BAD_REQUEST).send('No data provided');
@@ -20,7 +22,10 @@ const addNews = async (req: Request, res: Response) => {
     }
     // Validate news
     const { error } = validateNews(news);
-    if (error) return res.status(StatusCodes.BAD_REQUEST).send(error.details[0].message);
+    if (error) {
+        await unlink(req.file.path);
+        return res.status(StatusCodes.BAD_REQUEST).send(error.details[0].message);
+    }
     // Save news
     store.news.push(news);
     await store.save();

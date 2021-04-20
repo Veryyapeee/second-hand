@@ -5,6 +5,8 @@ import { CV } from '../../../interfaces/town.interface';
 
 import validateNewCv from '../validation/validateNewCv';
 
+import unlink from '../../../utils/unlink';
+
 const addCv = async (req: Request, res: Response) => {
     // Check if file was provided
     if (!req.file) return res.status(StatusCodes.BAD_REQUEST).send('No data provided');
@@ -22,7 +24,10 @@ const addCv = async (req: Request, res: Response) => {
     // Validate CV data
     const { error } = validateNewCv(addedCv);
 
-    if (error) return res.status(StatusCodes.BAD_REQUEST).send(error.details[0].message);
+    if (error) {
+        await unlink(req.file.path);
+        return res.status(StatusCodes.BAD_REQUEST).send(error.details[0].message)
+    };
 
     // Push CV to town object
     town.cv.push(addedCv);
