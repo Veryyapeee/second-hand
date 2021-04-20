@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-import Store, { StoreAddress } from '../interfaces/store.interface';
+import Store from '../interfaces/store.interface';
 
 const addressSchema = new mongoose.Schema({
     _id: false,
@@ -109,20 +109,8 @@ const priceSchema = new mongoose.Schema({
     },
 })
 
-export const newsSchema = new mongoose.Schema({
-    title: {
-        type: String,
-        minlength: 3,
-        maxlength: 24,
-        required: true,
-    },
-    description: {
-        type: String,
-        minlength: 3,
-        maxlength: 255,
-        required: true,
-    },
-    photo: {
+const gallerySchema = new mongoose.Schema({
+    path: {
         type: String,
         minlength: 3,
         maxlength: 255,
@@ -130,11 +118,21 @@ export const newsSchema = new mongoose.Schema({
     }
 })
 
-const gallerySchema = new mongoose.Schema({
-    path: {
+export const newsSchema = new mongoose.Schema({
+    title: {
+        type: String,
+        minlength: 3,
+        maxlength: 24,
+        required: true,
+    },
+    content: {
         type: String,
         minlength: 3,
         maxlength: 255,
+        required: true,
+    },
+    photo: {
+        type: gallerySchema,
         required: true,
     }
 })

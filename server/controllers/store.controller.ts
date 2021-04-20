@@ -5,6 +5,7 @@ import updateGallery from '../src/store/endpoints/gallery';
 import removeGallery from '../src/store/endpoints/removeGallery';
 import getStoreInfo from '../src/store/endpoints/getStore';
 import changeStoreInformation from '../src/store/endpoints/changeStoreInformation';
+import addNews from '../src/store/endpoints/addNews';
 
 import getSingleTown from '../middleware/getSingleTown';
 import getSingleStore from '../middleware/getSingleStore';
@@ -23,7 +24,8 @@ export default class StoreController {
         this.router.post(this.path, getSingleTown, this.createStore);
         this.router.put(`${this.path}/:storeId/gallery`, getSingleTown, getSingleStore, uploadGallery.array('gallery'), this.updateGallery);
         this.router.put(`${this.path}/:storeId/removeGallery`, getSingleTown, getSingleStore, this.removeGallery);
-        this.router.put(`${this.path}/:storeId`, getSingleTown, getSingleStore, this.changeStoreInformation)
+        this.router.put(`${this.path}/:storeId`, getSingleTown, getSingleStore, this.changeStoreInformation);
+        this.router.put(`${this.path}/:storeId/addNews`, getSingleTown, getSingleStore, uploadGallery.single('photo'), this.addNews);
         this.router.get(`${this.path}/:storeId`, getSingleTown, getSingleStore, this.getStoreInfo);
     }
 
@@ -38,6 +40,9 @@ export default class StoreController {
     }
     getStoreInfo(req: Request, res: Response) {
         getStoreInfo(req, res);
+    }
+    addNews(req: Request, res: Response) {
+        addNews(req, res);
     }
     changeStoreInformation(req: Request, res: Response) {
         changeStoreInformation(req, res);

@@ -22,16 +22,14 @@ export interface StorePrice {
     saturday: number;
     sunday: number;
 }
-
-export interface News {
-    title: String;
-    content: String;
-    photo: String;
-}
-
 export interface Gallery {
     _id?: String;
     path: String;
+}
+export interface News {
+    title: String;
+    content: String;
+    photo: Gallery;
 }
 
 export interface StoreHistory {
@@ -59,6 +57,6 @@ export default interface Store {
     suppDay: String;
     price: StorePrice;
     news: News[];
-    gallery: String[];
+    gallery: Gallery[];
     History: StoreHistory[];
 }
