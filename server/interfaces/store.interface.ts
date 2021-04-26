@@ -27,24 +27,11 @@ export interface Gallery {
     path: String;
 }
 export interface News {
+    _id?: String;
     title: String;
     content: String;
     photo: Gallery;
-}
-
-export interface StoreHistory {
-    id: String;
-    name: String;
-    description: String;
-    address: StoreAddress;
-    contact: String;
-    openHours: OpenHours;
-    suppDay: String;
-    price: StorePrice;
-    news: News[];
-    gallery: Gallery[];
-    userName: String;
-    date: Date;
+    date?: Date;
 }
 
 export default interface Store {
@@ -58,5 +45,4 @@ export default interface Store {
     price: StorePrice;
     news: News[];
     gallery: Gallery[];
-    History: StoreHistory[];
 }

@@ -134,60 +134,10 @@ export const newsSchema = new mongoose.Schema({
     photo: {
         type: gallerySchema,
         required: true,
-    }
-})
-
-const historySchema = new mongoose.Schema({
-    _id: false,
-    userName: {
-        type: String,
-        minlength: 3,
-        maxlength: 24,
-        required: true,
     },
-    name: {
-        type: String,
-        minlength: 3,
-        maxlength: 30,
-        required: true,
-    },
-    description: {
-        type: String,
-        minlength: 3,
-        maxlength: 255,
-        required: true,
-    },
-    address: {
-        type: addressSchema,
-        required: true,
-    },
-    contact: {
-        type: String,
-        minlength: 5,
-        maxlength: 24,
-        required: true,
-    },
-    openHours: {
-        type: openHoursSchema,
-        required: true,
-    },
-    suppDay: {
-        type: String,
-        minlength: 3,
-        maxlength: 24,
-    },
-    price: {
-        type: priceSchema,
-        required: true,
-    },
-    news: [newsSchema],
-    gallery: [
-        gallerySchema
-    ],
     date: {
         type: Date,
-        default: Date.now(),
-        required: true,
+        default: Date.now()
     }
 })
 
@@ -230,9 +180,6 @@ const storeSchema = new mongoose.Schema({
     news: [newsSchema],
     gallery: [
         gallerySchema
-    ],
-    history: [
-        historySchema
     ]
 })
 

@@ -1,5 +1,5 @@
 ###
-# Town
+####################################### Town
 
 ###
 # Create town
@@ -57,7 +57,7 @@ Content-Type: application/json
     "id": "607c03cbafc1e411b4c7cdb8"
 }
 
-### Store
+############################### Store
 
 ###
 # Create store
@@ -148,3 +148,51 @@ Content-Type: application/json
 
 ###
 # Add news -> postman
+
+###
+# Remove news
+PUT http://localhost:5000/town/607ab1e8236e672234117aa3/store/607c220405ae1c07646660bc/removeNews HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": "607f13ff53f2e42670d46d9c"
+}
+
+###
+# Edit news
+
+PUT http://localhost:5000/town/607ab1e8236e672234117aa3/store/607c220405ae1c07646660bc/editNews/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": "607f1679c131cc396824b1cd",
+    "title": "Edited wtf",
+    "content": "Edited wtf"
+}
+
+
+############################ CheapStore
+
+###
+# Create CheapStore
+
+POST http://localhost:5000/town/607ab1e8236e672234117aa3/store/607c14735158a518c8edab6e/cheapStore HTTP/1.1
+Content-Type: application/json
+
+{
+    "description": "CheapStore test",
+    "openHours": {
+        "monday": "7:00 - 14:00",
+        "tuesday": "7:00 - 14:00",
+        "wednesday": "7:00 - 14:00",
+        "thursday": "7:00 - 14:00",
+        "friday": "7:00 - 14:00",
+        "saturday": "7:00 - 14:00",
+        "sunday": "7:00 - 14:00"
+    },
+    "price": {
+        "shoes": 10,
+        "shirt": 20,
+        "socks": 50
+    }
+}

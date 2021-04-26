@@ -7,62 +7,18 @@ const cargoSchema = new mongoose.Schema({
     _id: false,
     shoes: {
         type: Number,
-        minlength: 3,
-        maxlength: 24,
+        required: true,
+    },
+    shirt: {
+        type: Number,
+        required: true,
+    },
+    socks: {
+        type: Number,
         required: true,
     }
 })
 
-const priceSchema = new mongoose.Schema({
-    _id: false,
-    monday: {
-        cargoSchema
-    },
-    tuesday: {
-        cargoSchema
-    },
-    wednesday: {
-        cargoSchema
-    },
-    thursday: {
-        cargoSchema
-    },
-    friday: {
-        cargoSchema
-    },
-    saturday: {
-        cargoSchema
-    },
-    sunday: {
-        cargoSchema
-    },
-})
-
-const historySchema = new mongoose.Schema({
-    description: {
-        type: String,
-        minlength: 3,
-        maxlength: 255,
-        required: true,
-    },
-    openHours: {
-        openHoursSchema,
-    },
-    price: {
-        priceSchema,
-    },
-    userName: {
-        type: String,
-        minlength: 3,
-        maxlength: 24,
-        required: true,
-    },
-    date: {
-        type: Date,
-        default: Date.now(),
-        required: true,
-    }
-})
 
 const cheapStoreSchema = new mongoose.Schema({
     storeId: {
@@ -76,14 +32,13 @@ const cheapStoreSchema = new mongoose.Schema({
         required: true,
     },
     openHours: {
-        openHoursSchema,
+        type: openHoursSchema,
+        required: true
     },
     price: {
-        priceSchema,
-    },
-    history: [
-        historySchema,
-    ]
+        type: cargoSchema,
+        required: true
+    }
 })
 
 const cheapStoreModel = mongoose.model<CheapStore & mongoose.Document>('CheapStore', cheapStoreSchema);

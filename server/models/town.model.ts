@@ -43,36 +43,6 @@ const cvSchema = new mongoose.Schema({
     }
 })
 
-const historySchema = new mongoose.Schema({
-    name: {
-        type: String,
-        minlength: 3,
-        maxlength: 255,
-        required: true,
-    },
-    shops: [
-        shopInTownSchema
-    ],
-    recruiting: {
-        type: Boolean,
-        required: true,
-    },
-    cv: [
-        cvSchema,
-    ],
-    user: {
-        type: String,
-        minlength: 5,
-        maxlength: 50,
-        required: true,
-    },
-    date: {
-        type: Date,
-        default: Date.now(),
-        required: true
-    }
-})
-
 const townSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -89,9 +59,6 @@ const townSchema = new mongoose.Schema({
     },
     cv: [
         cvSchema,
-    ],
-    history: [
-        historySchema,
     ]
 })
 

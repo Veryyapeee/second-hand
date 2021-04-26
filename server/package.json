@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "nodemon",
-    "dev": "ts-node ./src/server.ts",
+    "dev": "nodemon ./src/server.ts",
     "lint": "prettier --check .",
     "test": "jest  --watchAll --detectOpenHandles --verbose",
     "test:c": "jest --watchAll --detectOpenHandles --verbose --coverage"
