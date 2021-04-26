@@ -10,7 +10,6 @@ const cors = require('cors');
  * connecting to database, running local server
  */
 
-//xDDD
 export default class App {
   public app: Application;
   private port = process.env.PORT || 3000;
@@ -29,7 +28,7 @@ export default class App {
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(cors());
   }
-  
+
 
   private initializeControllers(controllers: Controller[]) {
     controllers.forEach((controller) => {
@@ -45,7 +44,7 @@ export default class App {
       : MONGO_DB_NAME;
 
     mongoose
-      .connect(`mongodb+srv://@managmentsystem.zz0bx.mongodb.net/`, {
+      .connect(`mongodb+srv://@cluster0.ci2fp.mongodb.net/`, {
         dbName: dbName,
         user: MONGO_USER,
         pass: MONGO_PASSWORD,
