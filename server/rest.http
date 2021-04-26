@@ -271,3 +271,28 @@ Content-Type: application/json
 ###
 # Get main page info
 GET http://localhost:5000/mainPage/608708cf4c6c2b29e0ac83d9 HTTP/1.1
+
+###
+# Add news - Postman
+
+###
+# Remove news
+
+PUT http://localhost:5000/mainPage/608708cf4c6c2b29e0ac83d9/removeNews HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": "60871365c812e747347e711d"
+}
+
+### 
+# Edit news
+
+PUT http://localhost:5000/mainPage/608708cf4c6c2b29e0ac83d9/editNews HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": "608712aef07edf568491ec21",
+    "title": "Edited wtf",
+    "content": "Edited wtf"
+}

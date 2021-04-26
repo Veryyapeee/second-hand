@@ -29,7 +29,7 @@ const mainPageSchema = new mongoose.Schema({
         default: {}
     },
     news: [
-        newsSchema,
+        newsSchema
     ]
 })
 
