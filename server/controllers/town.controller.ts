@@ -7,6 +7,7 @@ import addCv from '../src/town/endpoints/addCv';
 import removeCv from '../src/town/endpoints/removeCv';
 import getTownInfo from '../src/town/endpoints/getTownInfo';
 import getTowns from '../src/town/endpoints/getAllTowns';
+import deleteTown from '../src/town/endpoints/deleteTown';
 
 import getAllTowns from '../middleware/getAllTowns';
 import getSingleTown from '../middleware/getSingleTown';
@@ -28,6 +29,7 @@ export default class TownController {
         this.router.put(`${this.path}/:townId/changeStatus`, this.changeTownRecruitingStatus);
         this.router.put(`${this.path}/:townId/addCv`, getSingleTown, uploadCv.single('CV'), this.addCv);
         this.router.put(`${this.path}/:townId/removeCv`, getSingleTown, this.removeCv);
+        this.router.delete(`${this.path}/:townId`, getSingleTown, this.deleteTown);
     }
 
     createTown(req: Request, res: Response) {
@@ -56,5 +58,8 @@ export default class TownController {
 
     removeCv(req: Request, res: Response) {
         removeCv(req, res);
+    }
+    deleteTown(req: Request, res: Response) {
+        deleteTown(req, res);
     }
 }

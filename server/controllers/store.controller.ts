@@ -8,6 +8,7 @@ import changeStoreInformation from '../src/store/endpoints/changeStoreInformatio
 import addNews from '../src/store/endpoints/addNews';
 import removeNews from '../src/store/endpoints/removeNews';
 import editNews from '../src/store/endpoints/editNews';
+import deleteStore from '../src/store/endpoints/deleteStore';
 
 import getSingleTown from '../middleware/getSingleTown';
 import getSingleStore from '../middleware/getSingleStore';
@@ -31,6 +32,7 @@ export default class StoreController {
         this.router.put(`${this.path}/:storeId/removeNews`, getSingleTown, getSingleStore, this.removeNews);
         this.router.put(`${this.path}/:storeId/editNews/`, getSingleTown, getSingleStore, this.editNews);
         this.router.get(`${this.path}/:storeId`, getSingleTown, getSingleStore, this.getStoreInfo);
+        this.router.delete(`${this.path}/:storeId`, getSingleTown, getSingleStore, this.deleteStore);
     }
 
     createStore(req: Request, res: Response) {
@@ -56,5 +58,8 @@ export default class StoreController {
     }
     changeStoreInformation(req: Request, res: Response) {
         changeStoreInformation(req, res);
+    }
+    deleteStore(req: Request, res: Response) {
+        deleteStore(req, res);
     }
 }
