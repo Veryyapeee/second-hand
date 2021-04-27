@@ -4,6 +4,7 @@ import createNewUser from '../src/admin/endpoints/createAdmin';
 import changePassword from '../src/admin/endpoints/changePassword';
 import getUserMe from '../src/admin/endpoints/getUserMe';
 import getAllUsers from '../src/admin/endpoints/getAllUsers';
+import removeUser from '../src/admin/endpoints/removeUser';
 
 import authUser from '../middleware/auth';
 
@@ -20,6 +21,7 @@ export default class AdminController {
         this.router.put(`${this.path}/changePassword`, authUser, this.changePassword);
         this.router.get(this.path, authUser, this.getUserMe);
         this.router.get(`${this.path}/allUsers`, authUser, this.getAllUsers);
+        this.router.delete(`${this.path}/:userId`, authUser, this.removeUser);
     }
 
     createNewUser(req: Request, res: Response) {
@@ -33,5 +35,8 @@ export default class AdminController {
     }
     getAllUsers(req: Request, res: Response) {
         getAllUsers(req, res);
+    }
+    removeUser(req: Request, res: Response) {
+        removeUser(req, res);
     }
 }

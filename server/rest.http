@@ -348,3 +348,10 @@ x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDg4NTI5NjY3MTUxO
 
 GET http://localhost:5000/users/allUsers
 x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDg4NTI5NjY3MTUxODUzNzAwYWFlNDEiLCJuYW1lIjoidGVzdE5hbWUiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjE5NTQ3OTg2fQ.3ROYsQFpZLzt4srtuSgCE2G-2wa8TIlDEO1Jm4nwJDs
+
+
+###
+# Remove user
+
+DELETE http://localhost:5000/users/60884d36751a0a19dc7770b8 HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDg4NTI5NjY3MTUxODUzNzAwYWFlNDEiLCJuYW1lIjoidGVzdE5hbWUiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjE5NTQ3OTg2fQ.3ROYsQFpZLzt4srtuSgCE2G-2wa8TIlDEO1Jm4nwJDs
