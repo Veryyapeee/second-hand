@@ -5,6 +5,7 @@
 # Create town
 
 POST http://localhost:5000/town HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDg4NTI5NjY3MTUxODUzNzAwYWFlNDEiLCJuYW1lIjoidGVzdE5hbWUiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjE5NTQ3OTg2fQ.3ROYsQFpZLzt4srtuSgCE2G-2wa8TIlDEO1Jm4nwJDs
 Content-Type: application/json
 
 {
@@ -28,6 +29,7 @@ GET http://localhost:5000/town/607ac25dad2d8e4684dd452f HTTP/1.1
 # Change town name
 
 PUT http://localhost:5000/town/607ab1e8236e672234117aa3/changeName HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDg4NTI5NjY3MTUxODUzNzAwYWFlNDEiLCJuYW1lIjoidGVzdE5hbWUiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjE5NTQ3OTg2fQ.3ROYsQFpZLzt4srtuSgCE2G-2wa8TIlDEO1Jm4nwJDs
 Content-Type: application/json
 
 {
@@ -38,6 +40,7 @@ Content-Type: application/json
 # Change town recruiting status
 
 PUT http://localhost:5000/town/607ab1e8236e672234117aa3/changeStatus HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDg4NTI5NjY3MTUxODUzNzAwYWFlNDEiLCJuYW1lIjoidGVzdE5hbWUiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjE5NTQ3OTg2fQ.3ROYsQFpZLzt4srtuSgCE2G-2wa8TIlDEO1Jm4nwJDs
 Content-Type: application/json
 
 {
@@ -51,6 +54,7 @@ Content-Type: application/json
 # Remove CV
 
 PUT http://localhost:5000/town/607ab1e8236e672234117aa3/removeCv HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDg4NTI5NjY3MTUxODUzNzAwYWFlNDEiLCJuYW1lIjoidGVzdE5hbWUiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjE5NTQ3OTg2fQ.3ROYsQFpZLzt4srtuSgCE2G-2wa8TIlDEO1Jm4nwJDs
 Content-Type: application/json
 
 {
@@ -60,6 +64,7 @@ Content-Type: application/json
 ###
 # Delete town
 DELETE http://localhost:5000/town/607ac25da52d8e4684dd452f HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDg4NTI5NjY3MTUxODUzNzAwYWFlNDEiLCJuYW1lIjoidGVzdE5hbWUiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjE5NTQ3OTg2fQ.3ROYsQFpZLzt4srtuSgCE2G-2wa8TIlDEO1Jm4nwJDs
 
 
 ############################### Store
@@ -68,6 +73,7 @@ DELETE http://localhost:5000/town/607ac25da52d8e4684dd452f HTTP/1.1
 # Create store
 
 POST http://localhost:5000/town/607ab1e8236e672234117aa3/store HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDg4NTI5NjY3MTUxODUzNzAwYWFlNDEiLCJuYW1lIjoidGVzdE5hbWUiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjE5NTQ3OTg2fQ.3ROYsQFpZLzt4srtuSgCE2G-2wa8TIlDEO1Jm4nwJDs
 Content-Type: application/json
 
 {
@@ -111,6 +117,7 @@ GET http://localhost:5000/town/607ab1e8236e672234117aa3/store/607c14735158a518c8
 # Change store information
 
 PUT http://localhost:5000/town/607ab1e8236e672234117aa3/store/607c14735158a518c8edab6e HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDg4NTI5NjY3MTUxODUzNzAwYWFlNDEiLCJuYW1lIjoidGVzdE5hbWUiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjE5NTQ3OTg2fQ.3ROYsQFpZLzt4srtuSgCE2G-2wa8TIlDEO1Jm4nwJDs
 Content-Type: application/json
 
 {
@@ -145,6 +152,7 @@ Content-Type: application/json
 # Remove pic from gallery
 
 PUT http://localhost:5000/town/607ab1e8236e672234117aa3/store/607c220405ae1c07646660bc/removeGallery HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDg4NTI5NjY3MTUxODUzNzAwYWFlNDEiLCJuYW1lIjoidGVzdE5hbWUiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjE5NTQ3OTg2fQ.3ROYsQFpZLzt4srtuSgCE2G-2wa8TIlDEO1Jm4nwJDs
 Content-Type: application/json
 
 {
@@ -157,6 +165,7 @@ Content-Type: application/json
 ###
 # Remove news
 PUT http://localhost:5000/town/607ab1e8236e672234117aa3/store/607c220405ae1c07646660bc/removeNews HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDg4NTI5NjY3MTUxODUzNzAwYWFlNDEiLCJuYW1lIjoidGVzdE5hbWUiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjE5NTQ3OTg2fQ.3ROYsQFpZLzt4srtuSgCE2G-2wa8TIlDEO1Jm4nwJDs
 Content-Type: application/json
 
 {
@@ -167,6 +176,7 @@ Content-Type: application/json
 # Edit news
 
 PUT http://localhost:5000/town/607ab1e8236e672234117aa3/store/607c220405ae1c07646660bc/editNews/ HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDg4NTI5NjY3MTUxODUzNzAwYWFlNDEiLCJuYW1lIjoidGVzdE5hbWUiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjE5NTQ3OTg2fQ.3ROYsQFpZLzt4srtuSgCE2G-2wa8TIlDEO1Jm4nwJDs
 Content-Type: application/json
 
 {
@@ -178,6 +188,7 @@ Content-Type: application/json
 ###
 # Delete store
 DELETE http://localhost:5000/town/607ab1e8236e672234117aa3/store/607c220405ae1c07646660bc HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDg4NTI5NjY3MTUxODUzNzAwYWFlNDEiLCJuYW1lIjoidGVzdE5hbWUiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjE5NTQ3OTg2fQ.3ROYsQFpZLzt4srtuSgCE2G-2wa8TIlDEO1Jm4nwJDs
 
 
 ############################ CheapStore
@@ -186,6 +197,7 @@ DELETE http://localhost:5000/town/607ab1e8236e672234117aa3/store/607c220405ae1c0
 # Create CheapStore
 
 POST http://localhost:5000/town/607ab1e8236e672234117aa3/store/607c14735158a518c8edab6e/cheapStore HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDg4NTI5NjY3MTUxODUzNzAwYWFlNDEiLCJuYW1lIjoidGVzdE5hbWUiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjE5NTQ3OTg2fQ.3ROYsQFpZLzt4srtuSgCE2G-2wa8TIlDEO1Jm4nwJDs
 Content-Type: application/json
 
 {
@@ -210,6 +222,7 @@ Content-Type: application/json
 # Edit cheap store information
 
 PUT http://localhost:5000/town/607ab1e8236e672234117aa3/store/607c14735158a518c8edab6e/cheapStore/6086b8bffaa5185498fbcb9a HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDg4NTI5NjY3MTUxODUzNzAwYWFlNDEiLCJuYW1lIjoidGVzdE5hbWUiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjE5NTQ3OTg2fQ.3ROYsQFpZLzt4srtuSgCE2G-2wa8TIlDEO1Jm4nwJDs
 Content-Type: application/json
 
 {
@@ -234,6 +247,7 @@ Content-Type: application/json
 # Delete cheap store
 
 DELETE http://localhost:5000/town/607ab1e8236e672234117aa3/store/607c14735158a518c8edab6e/cheapStore/6086b8bffaa5185498fbcb9a HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDg4NTI5NjY3MTUxODUzNzAwYWFlNDEiLCJuYW1lIjoidGVzdE5hbWUiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjE5NTQ3OTg2fQ.3ROYsQFpZLzt4srtuSgCE2G-2wa8TIlDEO1Jm4nwJDs
 
 
 ###
@@ -243,6 +257,7 @@ DELETE http://localhost:5000/town/607ab1e8236e672234117aa3/store/607c14735158a51
 # Post main page
 
 POST http://localhost:5000/mainPage HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDg4NTI5NjY3MTUxODUzNzAwYWFlNDEiLCJuYW1lIjoidGVzdE5hbWUiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjE5NTQ3OTg2fQ.3ROYsQFpZLzt4srtuSgCE2G-2wa8TIlDEO1Jm4nwJDs
 Content-Type: application/json
 
 {
@@ -257,6 +272,7 @@ Content-Type: application/json
 # Edit main page
 
 PUT http://localhost:5000/mainPage/608708cf4c6c2b29e0ac83d9 HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDg4NTI5NjY3MTUxODUzNzAwYWFlNDEiLCJuYW1lIjoidGVzdE5hbWUiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjE5NTQ3OTg2fQ.3ROYsQFpZLzt4srtuSgCE2G-2wa8TIlDEO1Jm4nwJDs
 Content-Type: application/json
 
 {
@@ -279,6 +295,7 @@ GET http://localhost:5000/mainPage/608708cf4c6c2b29e0ac83d9 HTTP/1.1
 # Remove news
 
 PUT http://localhost:5000/mainPage/608708cf4c6c2b29e0ac83d9/removeNews HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDg4NTI5NjY3MTUxODUzNzAwYWFlNDEiLCJuYW1lIjoidGVzdE5hbWUiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjE5NTQ3OTg2fQ.3ROYsQFpZLzt4srtuSgCE2G-2wa8TIlDEO1Jm4nwJDs
 Content-Type: application/json
 
 {
@@ -289,6 +306,7 @@ Content-Type: application/json
 # Edit news
 
 PUT http://localhost:5000/mainPage/608708cf4c6c2b29e0ac83d9/editNews HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDg4NTI5NjY3MTUxODUzNzAwYWFlNDEiLCJuYW1lIjoidGVzdE5hbWUiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjE5NTQ3OTg2fQ.3ROYsQFpZLzt4srtuSgCE2G-2wa8TIlDEO1Jm4nwJDs
 Content-Type: application/json
 
 {
@@ -315,6 +333,7 @@ Content-Type: application/json
 # Create user
 
 POST http://localhost:5000/users HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDg4NTI5NjY3MTUxODUzNzAwYWFlNDEiLCJuYW1lIjoidGVzdE5hbWUiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjE5NTQ3OTg2fQ.3ROYsQFpZLzt4srtuSgCE2G-2wa8TIlDEO1Jm4nwJDs
 Content-Type: application/json
 
 {
@@ -332,7 +351,7 @@ Content-Type: application/json
 
 
 {
-    "oldPassword": "P@ssword1",
+    "oldPassword": "P@ziom1a",
     "password": "P@ziom1a",
     "confirmPassword": "P@ziom1a"
 }

@@ -11,6 +11,7 @@ import getMainPage from '../middleware/getMainPage';
 
 import uploadGallery from '../middleware/storeGalleryFiles';
 
+import authUser from '../middleware/auth';
 export default class MainPageController {
     public path = '/mainPage';
     public router = express.Router();
@@ -20,12 +21,12 @@ export default class MainPageController {
     }
 
     initializeRoutes() {
-        this.router.post(this.path, this.createMainPage);
-        this.router.put(`${this.path}/:mainPageId`, getMainPage, this.editMainPage);
+        this.router.post(this.path, authUser, this.createMainPage);
+        this.router.put(`${this.path}/:mainPageId`, authUser, getMainPage, this.editMainPage);
         this.router.get(`${this.path}/:mainPageId`, getMainPage, this.getMainPageData);
-        this.router.put(`${this.path}/:mainPageId/addNews`, getMainPage, uploadGallery.single('photo'), this.addNews);
-        this.router.put(`${this.path}/:mainPageId/removeNews`, getMainPage, this.removeNews);
-        this.router.put(`${this.path}/:mainPageId/editNews`, getMainPage, this.editNews);
+        this.router.put(`${this.path}/:mainPageId/addNews`, authUser, getMainPage, uploadGallery.single('photo'), this.addNews);
+        this.router.put(`${this.path}/:mainPageId/removeNews`, authUser, getMainPage, this.removeNews);
+        this.router.put(`${this.path}/:mainPageId/editNews`, authUser, getMainPage, this.editNews);
     }
 
     createMainPage(req: Request, res: Response) {

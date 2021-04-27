@@ -12,6 +12,9 @@ import deleteTown from '../src/town/endpoints/deleteTown';
 import getAllTowns from '../middleware/getAllTowns';
 import getSingleTown from '../middleware/getSingleTown';
 
+import authUser from '../middleware/auth';
+import authAdmin from '../middleware/authAdmin';
+
 import uploadCv from '../middleware/cvFile';
 export default class TownController {
     public path = `/town`;
@@ -22,14 +25,14 @@ export default class TownController {
     }
 
     initializeRoutes() {
-        this.router.post(this.path, getAllTowns, this.createTown);
+        this.router.post(this.path, authUser, getAllTowns, this.createTown);
         this.router.get(this.path, getAllTowns, this.getTowns);
         this.router.get(`${this.path}/:townId`, getSingleTown, this.getTownInfo);
-        this.router.put(`${this.path}/:townId/changeName`, getAllTowns, this.changeTownName);
-        this.router.put(`${this.path}/:townId/changeStatus`, this.changeTownRecruitingStatus);
+        this.router.put(`${this.path}/:townId/changeName`, authUser, getAllTowns, this.changeTownName);
+        this.router.put(`${this.path}/:townId/changeStatus`, authUser, this.changeTownRecruitingStatus);
         this.router.put(`${this.path}/:townId/addCv`, getSingleTown, uploadCv.single('CV'), this.addCv);
-        this.router.put(`${this.path}/:townId/removeCv`, getSingleTown, this.removeCv);
-        this.router.delete(`${this.path}/:townId`, getSingleTown, this.deleteTown);
+        this.router.put(`${this.path}/:townId/removeCv`, authUser, getSingleTown, this.removeCv);
+        this.router.delete(`${this.path}/:townId`, authUser, getSingleTown, this.deleteTown);
     }
 
     createTown(req: Request, res: Response) {

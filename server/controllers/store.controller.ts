@@ -15,6 +15,8 @@ import getSingleStore from '../middleware/getSingleStore';
 
 import uploadGallery from '../middleware/storeGalleryFiles';
 
+import authUser from '../middleware/auth';
+import authAdmin from '../middleware/authAdmin';
 export default class StoreController {
     public path = '/town/:townId/store';
     public router = express.Router();
@@ -24,15 +26,15 @@ export default class StoreController {
     }
 
     initializeRoutes() {
-        this.router.post(this.path, getSingleTown, this.createStore);
-        this.router.put(`${this.path}/:storeId/gallery`, getSingleTown, getSingleStore, uploadGallery.array('gallery'), this.updateGallery);
-        this.router.put(`${this.path}/:storeId/removeGallery`, getSingleTown, getSingleStore, this.removeGallery);
-        this.router.put(`${this.path}/:storeId`, getSingleTown, getSingleStore, this.changeStoreInformation);
-        this.router.put(`${this.path}/:storeId/addNews`, getSingleTown, getSingleStore, uploadGallery.single('photo'), this.addNews);
-        this.router.put(`${this.path}/:storeId/removeNews`, getSingleTown, getSingleStore, this.removeNews);
-        this.router.put(`${this.path}/:storeId/editNews/`, getSingleTown, getSingleStore, this.editNews);
+        this.router.post(this.path, authUser, getSingleTown, this.createStore);
+        this.router.put(`${this.path}/:storeId/gallery`, authUser, getSingleTown, getSingleStore, uploadGallery.array('gallery'), this.updateGallery);
+        this.router.put(`${this.path}/:storeId/removeGallery`, authUser, getSingleTown, getSingleStore, this.removeGallery);
+        this.router.put(`${this.path}/:storeId`, authUser, getSingleTown, getSingleStore, this.changeStoreInformation);
+        this.router.put(`${this.path}/:storeId/addNews`, authUser, getSingleTown, getSingleStore, uploadGallery.single('photo'), this.addNews);
+        this.router.put(`${this.path}/:storeId/removeNews`, authUser, getSingleTown, getSingleStore, this.removeNews);
+        this.router.put(`${this.path}/:storeId/editNews/`, authUser, getSingleTown, getSingleStore, this.editNews);
         this.router.get(`${this.path}/:storeId`, getSingleTown, getSingleStore, this.getStoreInfo);
-        this.router.delete(`${this.path}/:storeId`, getSingleTown, getSingleStore, this.deleteStore);
+        this.router.delete(`${this.path}/:storeId`, authUser, getSingleTown, getSingleStore, this.deleteStore);
     }
 
     createStore(req: Request, res: Response) {
