@@ -7,7 +7,7 @@ import getAllUsers from '../src/admin/endpoints/getAllUsers';
 import removeUser from '../src/admin/endpoints/removeUser';
 
 import authUser from '../middleware/auth';
-
+import authAdmin from '../middleware/authAdmin';
 export default class AdminController {
     public path = '/users';
     public router = express.Router();
@@ -17,11 +17,11 @@ export default class AdminController {
     }
 
     initializeRoutes() {
-        this.router.post(this.path, this.createNewUser);
+        this.router.post(this.path, authAdmin, this.createNewUser);
         this.router.put(`${this.path}/changePassword`, authUser, this.changePassword);
         this.router.get(this.path, authUser, this.getUserMe);
-        this.router.get(`${this.path}/allUsers`, authUser, this.getAllUsers);
-        this.router.delete(`${this.path}/:userId`, authUser, this.removeUser);
+        this.router.get(`${this.path}/allUsers`, authUser, authAdmin, this.getAllUsers);
+        this.router.delete(`${this.path}/:userId`, authUser, authAdmin, this.removeUser);
     }
 
     createNewUser(req: Request, res: Response) {

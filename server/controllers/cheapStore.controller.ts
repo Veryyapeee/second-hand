@@ -8,6 +8,7 @@ import getSingleTown from '../middleware/getSingleTown';
 import getSingleStore from '../middleware/getSingleStore';
 import getSingleCheapStore from '../middleware/getSingleCheapStore';
 
+import authUser from '../middleware/auth';
 export default class CheapStoreController {
     public path = '/town/:townId/store/:storeId';
     public router = express.Router();
@@ -17,9 +18,9 @@ export default class CheapStoreController {
     }
 
     initializeRoutes() {
-        this.router.post(`${this.path}/cheapStore`, getSingleTown, getSingleStore, this.createCheapStore);
-        this.router.put(`${this.path}/cheapStore/:cheapStoreId`, getSingleTown, getSingleStore, getSingleCheapStore, this.editCheapStore);
-        this.router.delete(`${this.path}/cheapStore/:cheapStoreId`, getSingleTown, getSingleStore, getSingleCheapStore, this.deleteCheapStore);
+        this.router.post(`${this.path}/cheapStore`, authUser, getSingleTown, getSingleStore, this.createCheapStore);
+        this.router.put(`${this.path}/cheapStore/:cheapStoreId`, authUser, getSingleTown, getSingleStore, getSingleCheapStore, this.editCheapStore);
+        this.router.delete(`${this.path}/cheapStore/:cheapStoreId`, authUser, getSingleTown, getSingleStore, getSingleCheapStore, this.deleteCheapStore);
     }
 
     createCheapStore(req: Request, res: Response) {
