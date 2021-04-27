@@ -21,7 +21,7 @@ const createNewUser = async (req: Request, res: Response) => {
 
     // Check if there is an admin
     const admin: Admin | null = await adminModel.findOne({ isAdmin: true });
-    if (admin) return res.status(StatusCodes.BAD_REQUEST).send("There can only be one admin!");
+    if (admin && req.body.isAdmin) return res.status(StatusCodes.BAD_REQUEST).send("There can only be one admin!");
     // Check if confirm password is correct
     if (req.body.password !== req.body.confirmPassword) return res.status(StatusCodes.BAD_REQUEST).send(`Passwords don't match`);
 

@@ -8,6 +8,7 @@ import StoreController from '../controllers/store.controller';
 import CheapStoreController from '../controllers/cheapStore.controller';
 import MainPageController from '../controllers/mainPage.controller';
 import AdminController from '../controllers/admin.controller';
+import AuthController from '../controllers/auth.controller';
 
 // Check if private key exist
 if (!config.get("jwtPrivateKey")) {
@@ -26,6 +27,7 @@ const app = new App([
   new CheapStoreController(),
   new MainPageController(),
   new AdminController(),
+  new AuthController()
 ]);
 
 // Express app listen

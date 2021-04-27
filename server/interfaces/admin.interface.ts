@@ -1,5 +1,9 @@
 import mongoose from "mongoose";
 
+export interface AdminLogin {
+    email: string;
+    password: string;
+}
 export default interface Admin extends mongoose.Document {
     _id: String;
     name: string;
