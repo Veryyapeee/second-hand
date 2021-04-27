@@ -1,4 +1,5 @@
 const Joi = require('joi-oid');
+
 import JoiPasswordComplexity from 'joi-password';
 
 import Admin from '../../../interfaces/admin.interface';

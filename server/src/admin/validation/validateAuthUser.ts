@@ -1,4 +1,4 @@
-import Joi from "joi";
+const Joi = require('joi-oid');
 
 import { AdminLogin } from '../../../interfaces/admin.interface';
 

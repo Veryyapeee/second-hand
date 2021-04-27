@@ -16,3 +16,5 @@ const auth = async (req: Request, res: Response, next: NextFunction) => {
         res.status(StatusCodes.BAD_REQUEST).send('Invalid token');
     }
 }
+
+export default auth;

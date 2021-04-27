@@ -323,3 +323,28 @@ Content-Type: application/json
     "password": "P@ssword1",
     "confirmPassword": "P@ssword1"
 }
+
+###
+# Change password
+PUT http://localhost:5000/users/changePassword HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDg4NTI5NjY3MTUxODUzNzAwYWFlNDEiLCJuYW1lIjoidGVzdE5hbWUiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjE5NTQ3OTg2fQ.3ROYsQFpZLzt4srtuSgCE2G-2wa8TIlDEO1Jm4nwJDs
+Content-Type: application/json
+
+
+{
+    "oldPassword": "P@ssword1",
+    "password": "P@ziom1a",
+    "confirmPassword": "P@ziom1a"
+}
+
+###
+# Get single user information
+
+GET http://localhost:5000/users HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDg4NTI5NjY3MTUxODUzNzAwYWFlNDEiLCJuYW1lIjoidGVzdE5hbWUiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjE5NTQ3OTg2fQ.3ROYsQFpZLzt4srtuSgCE2G-2wa8TIlDEO1Jm4nwJDs
+
+###
+# Get all users
+
+GET http://localhost:5000/users/allUsers
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDg4NTI5NjY3MTUxODUzNzAwYWFlNDEiLCJuYW1lIjoidGVzdE5hbWUiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjE5NTQ3OTg2fQ.3ROYsQFpZLzt4srtuSgCE2G-2wa8TIlDEO1Jm4nwJDs
