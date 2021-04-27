@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken"
 
 import Admin from '../interfaces/admin.interface';
 
-const adminSchema = new mongoose.Schema({
+const adminSchema = new mongoose.Schema<Admin>({
     name: {
         type: String,
         minlength: 3,
@@ -26,8 +26,17 @@ const adminSchema = new mongoose.Schema({
     isAdmin: {
         type: Boolean,
         required: true,
+        default: false,
     }
 })
+
+adminSchema.methods.generateAuthToken = function () {
+    const token = jwt.sign(
+        { _id: this._id, name: this.name, isAdmin: this.isAdmin },
+        config.get('jwtPrivateKey')
+    );
+    return token;
+}
 
 const adminModel = mongoose.model<Admin & mongoose.Document>('Admin', adminSchema);
 

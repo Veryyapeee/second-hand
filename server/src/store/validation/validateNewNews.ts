@@ -7,7 +7,7 @@ const validateNews = (news: News) => {
         title: Joi.string().min(3).max(24).required(),
         content: Joi.string().min(3).max(255).required(),
         photo: Joi.object({
-            path: Joi.string().min(3).max(255).required()
+            path: Joi.string().required()
         })
     })
 

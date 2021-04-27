@@ -4,6 +4,7 @@ import { newsSchema } from './store.model';
 import MainPage from '../interfaces/mainPage.interface';
 
 const covidInfoSchema = new mongoose.Schema({
+    _id: false,
     enabled: {
         type: Boolean,
         required: true,
@@ -23,7 +24,10 @@ const mainPageSchema = new mongoose.Schema({
         maxlength: 255,
         required: true,
     },
-    covidInfo: { covidInfoSchema },
+    covidInfo: {
+        type: covidInfoSchema,
+        default: {}
+    },
     news: [
         newsSchema
     ]
