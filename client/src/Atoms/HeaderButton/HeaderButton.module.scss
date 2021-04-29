@@ -1,2 +1,14 @@
-.button {
+@import "styles/variables.scss";
+
+.headerLink {
+  background: $backgroundBlue;
+  color: $fontWhite;
+  font-family: $fontRubik;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.6em 2em;
+  border-radius: 0.9em;
+  &:hover {
+    background: $backgroundBlueHover;
+  }
 }

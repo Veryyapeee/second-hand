@@ -1,0 +1,10 @@
+@import "styles/variables.scss";
+
+.title {
+  font-family: $fontRubik;
+  font-weight: 500;
+  color: $fontRed;
+  background: $backgroundWhite;
+  padding: 0.3em 4em;
+  border-radius: 1.2em;
+}

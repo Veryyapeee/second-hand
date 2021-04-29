@@ -10,6 +10,7 @@ import { ToastContainer } from "react-toastify";
 import App from "./App";
 
 import "react-toastify/dist/ReactToastify.min.css";
+import "Styles/global.scss";
 
 const queryClient = new QueryClient();
 export const history = createBrowserHistory();

@@ -10,7 +10,11 @@ $fontBlack: #000;
 $fontBlue: #5c9bd6;
 
 $backgroundRed: #ee4141;
+$backgroundRedDark: #c24848;
 $backgroundBlue: #5c98d6;
+$backgroundBlueHover: #5c98d6aa;
+$backgroundBlueDark: #3776b1;
+$backgroundWhite: #fff;
 
 @mixin scrollbar(
   $scrollSize: 4px,
