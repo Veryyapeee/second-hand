@@ -1,2 +1,7 @@
+@import "styles/variables.scss";
+
 .title {
+  color: $fontBlue;
+  font-family: $fontRubik;
+  font-weight: 500;
 }

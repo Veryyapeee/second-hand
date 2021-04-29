@@ -1,2 +1,7 @@
+@import "styles/variables.scss";
+
 .title {
+  color: $fontWhite;
+  font-weight: bold;
+  font-family: $fontOpenSans;
 }

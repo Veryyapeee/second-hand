@@ -1,7 +1,7 @@
 @import "styles/variables.scss";
 
 .subText {
-  color: $fontBlack;
+  color: $fontWhite;
+  font-weight: bold;
   font-family: $fontOpenSans;
-  font-weight: normal;
 }

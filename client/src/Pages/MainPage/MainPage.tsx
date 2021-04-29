@@ -1,11 +1,11 @@
 import React from "react";
 
-import UnderlineTitle from "Atoms/UnderlineTitle/UnderlineTitle";
+import MainSubtitle from "Atoms/MainSubtitle/MainSubtitle";
 
 const MainPage = () => {
   return (
     <div>
-      <UnderlineTitle>Twój stary</UnderlineTitle>
+      <MainSubtitle>Test</MainSubtitle>
     </div>
   );
 };

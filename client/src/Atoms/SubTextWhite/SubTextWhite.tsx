@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "./SubTextRed.module.scss";
+import styles from "./SubTextWhite.module.scss";
 
 interface Props {
   children: string;
