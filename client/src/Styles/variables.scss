@@ -14,7 +14,10 @@ $backgroundRedDark: #c24848;
 $backgroundBlue: #5c98d6;
 $backgroundBlueHover: #5c98d6aa;
 $backgroundBlueDark: #3776b1;
+$backgroundBlueLight: #64a9e9;
 $backgroundWhite: #fff;
+
+$lightShadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 
 @mixin scrollbar(
   $scrollSize: 4px,

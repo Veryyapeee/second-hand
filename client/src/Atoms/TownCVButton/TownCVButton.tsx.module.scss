@@ -1,0 +1,19 @@
+@import "styles/variables.scss";
+
+// Add hovers
+
+.button {
+  text-align: center;
+  box-shadow: $lightShadow;
+  color: $fontBlack;
+  font-family: $fontRubik;
+  font-weight: 500;
+  padding: 1.2em 6.5em;
+  border-radius: 0.5em;
+  background: $backgroundWhite;
+}
+
+.button.activeButton {
+  background: $backgroundBlue;
+  color: $fontWhite;
+}
