@@ -18,7 +18,7 @@ const HeaderClient: React.FC<Props> = ({ towns }) => {
   return (
     <header className={styles.header}>
       {towns.map((town: Town) => (
-        <NavElement path={`/town/${town._id}`} key={town._id}>
+        <NavElement path={`/home/town/${town._id}`} key={town._id}>
           {town.name}
         </NavElement>
       ))}
