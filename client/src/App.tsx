@@ -19,16 +19,17 @@ const App: React.FC = () => {
     <Suspense fallback={<Spinner />}>
       <Switch>
         <Route
-          exact
           path="/"
           render={() => (
             <ClientTemplate>
-              <Route exact path="/" component={MainPage} />
-              <Route
-                exact
-                path="/town/:townId"
-                render={() => <span>Town</span>}
-              />
+              <Switch>
+                <Route exact path="/" component={MainPage} />
+                <Route
+                  exact
+                  path="/town/:townId"
+                  render={() => <span>Town</span>}
+                />
+              </Switch>
             </ClientTemplate>
           )}
         />
