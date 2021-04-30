@@ -1,0 +1,16 @@
+@import "styles/variables.scss";
+
+.footer {
+  width: 100%;
+  background: $backgroundDark;
+  display: flex;
+  justify-content: flex-start;
+  padding: 1.8em 4em;
+  gap: 2em;
+  .innerCon {
+    color: $fontWhite;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+  }
+}

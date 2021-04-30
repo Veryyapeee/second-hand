@@ -2,8 +2,8 @@ import axios from 'Axios/axiosMain';
 import toastNotify from 'Utils/toastNotify';
 
 // Get towns
-const getTowns = async () => {
-    const { data } = await axios.get('/town').then(res => {
+const getMainPage = async () => {
+    const { data } = await axios.get(`/mainPage/${'608708cf4c6c2b29e0ac83d9'}`).then(res => {
         return res;
     }).catch(err => {
         toastNotify(err.response.status);
@@ -12,4 +12,4 @@ const getTowns = async () => {
     return data;
 }
 
-export default getTowns;
+export default getMainPage;

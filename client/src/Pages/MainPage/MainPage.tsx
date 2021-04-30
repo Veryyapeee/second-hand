@@ -1,9 +1,13 @@
 import React from "react";
 
-import Header from "Organism/Header/Header";
+import CoronaInfo from "Molecules/CoronaInfo/CoronaInfo";
 
 const MainPage = () => {
-  return <Header />;
+  return (
+    <>
+      <CoronaInfo />
+    </>
+  );
 };
 
 export default MainPage;
