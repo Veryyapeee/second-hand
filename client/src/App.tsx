@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 
 import AdminRoute from "Routes/AdminRoute";
 
@@ -19,24 +19,36 @@ const App: React.FC = () => {
     <Suspense fallback={<Spinner />}>
       <Switch>
         <Route
+          exact
           path="/"
+          render={() => <Redirect to={"/home/mainPage"} />}
+        />
+        <Route
+          path="/admin/(.+)"
+          render={() => (
+            <Switch>
+              <AdminRoute path="/admin/protected" component={Hello} />
+              <Route render={() => <Redirect to="/not-found" />} />
+            </Switch>
+          )}
+        />
+        <Route
+          path="/home/(.+)"
           render={() => (
             <ClientTemplate>
               <Switch>
-                <Route exact path="/" component={MainPage} />
+                <Route exact path="/home/mainPage" component={MainPage} />
                 <Route
                   exact
-                  path="/town/:townId"
+                  path="/home/town/:townId"
                   render={() => <span>Town</span>}
                 />
+                <Route render={() => <Redirect to="/not-found" />} />
               </Switch>
             </ClientTemplate>
           )}
         />
-        <Route
-          path="/(.+)"
-          render={() => <AdminRoute path="/protected" component={Hello} />}
-        />
+        <Route render={() => <Redirect to="/not-found" />} />
       </Switch>
     </Suspense>
   );

@@ -7,12 +7,12 @@ const AdminRoute = ({ component: Component, isAuth, ...rest }: any) => {
       {...rest}
       exact
       render={(props: any) =>
-        localStorage.getItem("token") ? (
+        !localStorage.getItem("token") ? (
           <Component {...props} />
         ) : (
           <Redirect
             to={{
-              pathname: "/",
+              pathname: "/home/mainPage",
             }}
           />
         )
