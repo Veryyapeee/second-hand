@@ -1,0 +1,25 @@
+@import "styles/variables.scss";
+
+// Add hover
+
+.navLink {
+  list-style: none;
+  font-family: $fontRubik;
+  font-weight: 500;
+  height: 100%;
+  a {
+    padding: 2em 1em;
+    height: 100%;
+    color: $fontBlack;
+    text-decoration: none;
+    &:hover {
+      background: $backgroundBlue;
+      color: $fontWhite;
+    }
+  }
+}
+
+a.active {
+  background: $backgroundBlue;
+  color: $fontWhite;
+}

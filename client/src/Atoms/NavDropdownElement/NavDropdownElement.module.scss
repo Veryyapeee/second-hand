@@ -1,0 +1,19 @@
+@import "styles/variables.scss";
+
+// Add hover
+
+.navLink {
+  list-style: none;
+  font-family: $fontRubik;
+  text-align: right;
+  width: 100%;
+  a {
+    color: $fontBlack;
+    text-decoration: none;
+  }
+}
+
+a.active {
+  background: $backgroundBlue;
+  color: $fontWhite;
+}

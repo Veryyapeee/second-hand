@@ -1,13 +1,9 @@
 import React from "react";
 
-import FormSubmitButton from "Atoms/FormSubmitButton/FormSubmitButton";
+import Header from "Organism/Header/Header";
 
 const MainPage = () => {
-  return (
-    <div style={{ background: "red", padding: "2em" }}>
-      <FormSubmitButton disable={false}>Piła</FormSubmitButton>
-    </div>
-  );
+  return <Header />;
 };
 
 export default MainPage;

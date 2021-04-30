@@ -9,7 +9,7 @@ x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDg4NTI5NjY3MTUxO
 Content-Type: application/json
 
 {
-    "name": "xDD",
+    "name": "Poznań",
     "recruiting": true
 }
 
