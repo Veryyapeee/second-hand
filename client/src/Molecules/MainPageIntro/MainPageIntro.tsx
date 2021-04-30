@@ -1,7 +1,6 @@
 import React from "react";
 
 import styles from "./MainPageIntro.module.scss";
-
 interface Props {
   children: JSX.Element | JSX.Element[] | string;
 }
