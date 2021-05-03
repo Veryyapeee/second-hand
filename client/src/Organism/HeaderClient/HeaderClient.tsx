@@ -30,9 +30,7 @@ const HeaderClient: React.FC<Props> = ({ towns }) => {
     function handleResize() {
       setWindowWidth(getWindowDimensions());
     }
-
     window.addEventListener("resize", handleResize);
-    console.log(windowWidth);
     return () => window.removeEventListener("resize", handleResize);
   }, [windowWidth]);
 

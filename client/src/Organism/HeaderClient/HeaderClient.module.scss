@@ -18,6 +18,9 @@
     height: 1.5em;
     width: auto;
     display: none;
+    &:hover {
+      cursor: pointer;
+    }
     @media (max-width: 900px) {
       display: block;
     }
@@ -39,15 +42,17 @@
       * {
         display: block;
         width: 100%;
-        :first-child {
-          width: 100%;
-        }
+      }
+      a:not(:first-child) {
+        width: 30%;
+        text-align: center;
+        margin-top: 0.5em;
       }
     }
     .logo {
       display: flex;
       width: 100%;
-      padding: 1em;
+      padding: 0.5em 1em;
       justify-content: space-between;
       align-items: center;
     }
