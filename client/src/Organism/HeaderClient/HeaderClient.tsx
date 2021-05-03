@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 
+import { motion } from "framer-motion";
+
 import NavElement from "Atoms/NavElement/NavElement";
 import HeaderButton from "Atoms/HeaderButton/HeaderButton";
+import Logo from "Atoms/Logo/Logo";
 
 import { Town } from "Utils/types";
 
@@ -12,35 +15,37 @@ interface Props {
   towns: Town[];
 }
 
-function getWindowDimensions() {
-  const { innerWidth: width, innerHeight: height } = window;
-  return {
-    width,
-    height,
-  };
-}
+// Get window width function
+const getWindowWidth = (): number => {
+  const { innerWidth: width } = window;
+  return width;
+};
+
+// Animation from framer-motion
+const variants = {
+  open: { opacity: 1, y: 0 },
+  closed: { opacity: 0, y: "-100%" },
+};
 
 // @props
 // towns - towns objects fetched from API
 const HeaderClient: React.FC<Props> = ({ towns }) => {
   const [sideBar, setSideBar] = useState<boolean>(true);
-  const [windowWidth, setWindowWidth] = useState(getWindowDimensions());
+  const [windowWidth, setWindowWidth] = useState<number>(getWindowWidth());
 
+  // Get window with with every resize
   useEffect(() => {
     function handleResize() {
-      setWindowWidth(getWindowDimensions());
+      setWindowWidth(getWindowWidth());
     }
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, [windowWidth]);
 
-  const headerClass = sideBar
-    ? [styles.header, styles.resHeader].join("")
-    : styles.header;
   return (
-    <header className={headerClass}>
+    <header className={styles.header}>
       <div className={styles.logo}>
-        Logo{" "}
+        <Logo path="/" />
         <img
           src={hamburger}
           alt="hamburger"
@@ -48,10 +53,12 @@ const HeaderClient: React.FC<Props> = ({ towns }) => {
           onClick={() => setSideBar(!sideBar)}
         />
       </div>
-      <div
+      <motion.div
+        animate={!sideBar && windowWidth <= 900 ? "closed" : "open"}
+        variants={variants}
         className={styles.navElements}
         style={{
-          display: !sideBar && windowWidth.width <= 900 ? "none" : "flex",
+          display: !sideBar && windowWidth <= 900 ? "none" : "flex",
         }}
       >
         {towns.map((town: Town) => (
@@ -60,7 +67,7 @@ const HeaderClient: React.FC<Props> = ({ towns }) => {
           </NavElement>
         ))}
         <HeaderButton path="/work">Pracuj u nas!</HeaderButton>
-      </div>
+      </motion.div>
     </header>
   );
 };
