@@ -12,6 +12,7 @@ import PageInfo from "Organism/PageInfo/PageInfo";
 import CenterBlueTitle from "Atoms/CenterBlueTitle/CenterBlueTitle";
 import SubTextBlack from "Atoms/SubTextBlack/SubTextBlack";
 import News from "Molecules/News/News";
+import NewsTemplate from "Templates/NewsTemplate/NewsTemplate";
 
 import getMainPage from "Api/client/getMainPage";
 
@@ -32,9 +33,35 @@ const MainPage = () => {
       </MainPageIntro>
       <CoronaInfo data={data.covidInfo} />
       {/* Test news */}
-      <News title={data.news[0].title} path={data.news[0].photo.path}>
-        {data.news[0].content}
-      </News>
+      <NewsTemplate>
+        <News title={data.news[0].title} path={data.news[0].photo.path}>
+          {data.news[0].content}
+        </News>
+        <News title={data.news[0].title} path={data.news[0].photo.path}>
+          {data.news[0].content}
+        </News>
+        <News title={data.news[0].title} path={data.news[0].photo.path}>
+          {data.news[0].content}
+        </News>
+        <News title={data.news[0].title} path={data.news[0].photo.path}>
+          {data.news[0].content}
+        </News>
+        <News title={data.news[0].title} path={data.news[0].photo.path}>
+          {data.news[0].content}
+        </News>
+        <News title={data.news[0].title} path={data.news[0].photo.path}>
+          {data.news[0].content}
+        </News>
+        <News title={data.news[0].title} path={data.news[0].photo.path}>
+          {data.news[0].content}
+        </News>
+        <News title={data.news[0].title} path={data.news[0].photo.path}>
+          {data.news[0].content}
+        </News>
+        <News title={data.news[0].title} path={data.news[0].photo.path}>
+          {data.news[0].content}
+        </News>
+      </NewsTemplate>
       {/* Test news */}
       <PageInfo>
         <CenterBlueTitle>Kilka słów o nas</CenterBlueTitle>

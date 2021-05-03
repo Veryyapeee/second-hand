@@ -1,0 +1,13 @@
+@import "styles/variables.scss";
+
+.outerContainer {
+  /* div:nth-child(1) {
+    grid-column: span 2;
+  } */
+  .newsContainer {
+    .newsInnerContainer {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
