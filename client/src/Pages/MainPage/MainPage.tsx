@@ -32,6 +32,11 @@ const MainPage = () => {
         </div>
       </MainPageIntro>
       <CoronaInfo data={data.covidInfo} />
+
+      <PageInfo>
+        <CenterBlueTitle>Kilka słów o nas</CenterBlueTitle>
+        <SubTextBlack>{data.description}</SubTextBlack>
+      </PageInfo>
       {/* Test news */}
       <NewsTemplate>
         <News title={data.news[0].title} path={data.news[0].photo.path}>
@@ -61,12 +66,14 @@ const MainPage = () => {
         <News title={data.news[0].title} path={data.news[0].photo.path}>
           {data.news[0].content}
         </News>
+        <News title={data.news[0].title} path={data.news[0].photo.path}>
+          {data.news[0].content}
+        </News>
+        <News title={data.news[0].title} path={data.news[0].photo.path}>
+          {data.news[0].content}
+        </News>
       </NewsTemplate>
       {/* Test news */}
-      <PageInfo>
-        <CenterBlueTitle>Kilka słów o nas</CenterBlueTitle>
-        <SubTextBlack>{data.description}</SubTextBlack>
-      </PageInfo>
     </>
   );
 };

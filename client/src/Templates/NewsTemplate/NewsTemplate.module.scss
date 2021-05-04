@@ -1,13 +1,57 @@
 @import "styles/variables.scss";
 
+.mainCon {
+  padding: 3em 0;
+
+  box-shadow: $shadowContainer;
+}
+
+.wrapper {
+  width: 70%;
+  margin: 0 auto;
+  min-width: 324px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+
+.buttonCon {
+  display: flex;
+  gap: 2em;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
 .outerContainer {
-  /* div:nth-child(1) {
-    grid-column: span 2;
-  } */
   .newsContainer {
     .newsInnerContainer {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      gap: 1em;
+      grid-template-rows: repeat(3, 1fr);
+      > div:first-of-type {
+        grid-template-columns: 1fr;
+      }
+      > div:nth-of-type(2),
+      > div:nth-of-type(3) {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}
+
+@media (min-width: 800px) {
+  .outerContainer {
+    .newsContainer {
+      .newsInnerContainer {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        > div:first-of-type {
+          grid-column: span 2;
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
     }
   }
 }

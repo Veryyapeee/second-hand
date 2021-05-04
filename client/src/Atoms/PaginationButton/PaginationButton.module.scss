@@ -1,0 +1,12 @@
+@import "styles/variables.scss";
+
+.button {
+  box-shadow: $buttonShadow;
+  padding: 0.3em 0.8em;
+  border-radius: 0.3em;
+  font-family: $fontRubik;
+  font-weight: 500;
+  &:hover {
+    cursor: pointer;
+  }
+}
