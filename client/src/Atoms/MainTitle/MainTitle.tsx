@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./MainTitle.module.scss";
 
 interface Props {
-  children: string;
+  children: string | JSX.Element | JSX.Element[] | string[];
 }
 
 const MainTitle: React.FC<Props> = ({ children }) => {

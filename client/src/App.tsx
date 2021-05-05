@@ -10,6 +10,8 @@ const ClientTemplate = React.lazy(
   () => import("Templates/ClientTemplate/ClientTemplate")
 );
 
+const Town = React.lazy(() => import("Pages/Town/Town"));
+
 const Hello = () => {
   return <span>Protected</span>;
 };
@@ -40,9 +42,10 @@ const App: React.FC = () => {
                 <Route exact path="/home/mainPage" component={MainPage} />
                 <Route
                   exact
-                  path="/home/town/:townId"
-                  render={() => <span>Town</span>}
+                  path="/home/town/:townId/store/:storeId"
+                  render={() => <span>Store</span>}
                 />
+                <Route exact path="/home/town/:townId" component={Town} />
                 <Route render={() => <Redirect to="/not-found" />} />
               </Switch>
             </ClientTemplate>

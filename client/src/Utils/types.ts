@@ -28,3 +28,8 @@ export interface MainPageNews {
         path: string;
     }
 }
+
+export interface ShopInTown {
+    id: string;
+    name: string;
+}

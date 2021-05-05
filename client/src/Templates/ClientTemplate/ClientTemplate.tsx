@@ -13,7 +13,7 @@ interface Props {
 
 const ClientTemplate: React.FC<Props> = ({ children }) => {
   // Fetch towns from API
-  const { isLoading, data }: any = useQuery("towns", getTowns);
+  const { isLoading, data } = useQuery("towns", getTowns);
   if (isLoading) {
     return <Spinner />;
   }

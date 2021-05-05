@@ -1,0 +1,11 @@
+@import "styles/variables.scss";
+
+.linkCon {
+  text-decoration: none;
+  width: 100%;
+}
+.cardWrapper {
+  box-shadow: $shadowContainer;
+  padding: 1em;
+  width: 100%;
+}
