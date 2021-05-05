@@ -2,12 +2,11 @@
 
 .mainCon {
   padding: 3em 0;
-
   box-shadow: $shadowContainer;
 }
 
 .wrapper {
-  width: 70%;
+  width: 60%;
   margin: 0 auto;
   min-width: 324px;
   display: flex;
@@ -24,10 +23,11 @@
 }
 
 .outerContainer {
+  min-height: 600px;
   .newsContainer {
     .newsInnerContainer {
       display: grid;
-      gap: 1em;
+      gap: 2em;
       grid-template-rows: repeat(3, 1fr);
       > div:first-of-type {
         grid-template-columns: 1fr;
@@ -42,6 +42,7 @@
 
 @media (min-width: 800px) {
   .outerContainer {
+    min-height: 400px;
     .newsContainer {
       .newsInnerContainer {
         display: grid;

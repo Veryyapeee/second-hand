@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { motion } from "framer-motion";
+
 import UnderlineTitle from "Atoms/UnderlineTitle/UnderlineTitle";
 import PaginationButton from "Atoms/PaginationButton/PaginationButton";
 
@@ -16,14 +18,27 @@ const pagination = (data: JSX.Element[], index: number) => {
   return data.slice(index, index + 3);
 };
 
+const variants = {
+  open: { x: 0 },
+  closed: { x: "-100%" },
+};
+
 const NewsTemplate: React.FC<Props> = ({ children }) => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-
+  const [changePage, setChangePage] = useState<boolean>(false);
   const goNext = () => {
     setCurrentIndex((prevState) => prevState + 3);
+    setChangePage(true);
+    setTimeout(() => {
+      setChangePage(false);
+    }, 100);
   };
   const goBack = () => {
     setCurrentIndex((prevState) => prevState - 3);
+    setChangePage(true);
+    setTimeout(() => {
+      setChangePage(false);
+    }, 100);
   };
 
   return (
@@ -32,9 +47,16 @@ const NewsTemplate: React.FC<Props> = ({ children }) => {
         <UnderlineTitle>Aktualności</UnderlineTitle>
         <div className={styles.outerContainer}>
           <div className={styles.newsContainer}>
-            <div className={styles.newsInnerContainer}>
+            <motion.div
+              animate={changePage ? "closed" : "open"}
+              variants={variants}
+              className={styles.newsInnerContainer}
+              style={{
+                display: changePage ? "none" : "grid",
+              }}
+            >
               {pagination(children, currentIndex)}
-            </div>
+            </motion.div>
           </div>
         </div>
         <div className={styles.buttonCon}>

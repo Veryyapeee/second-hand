@@ -19,5 +19,12 @@ export interface CovidInfo {
 }
 
 export interface MainPageNews {
-
+    date: string;
+    _id: string;
+    title: string;
+    content: string;
+    photo: {
+        _id: string;
+        path: string;
+    }
 }

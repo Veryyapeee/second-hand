@@ -18,6 +18,8 @@ import getMainPage from "Api/client/getMainPage";
 
 import styles from "./MainPage.module.scss";
 
+import { MainPageNews } from "Utils/types";
+
 const MainPage = () => {
   const { isLoading, data }: any = useQuery("mainPage", getMainPage);
   if (isLoading) {
@@ -37,43 +39,18 @@ const MainPage = () => {
         <CenterBlueTitle>Kilka słów o nas</CenterBlueTitle>
         <SubTextBlack>{data.description}</SubTextBlack>
       </PageInfo>
-      {/* Test news */}
       <NewsTemplate>
-        <News title={data.news[0].title} path={data.news[0].photo.path}>
-          {data.news[0].content}
-        </News>
-        <News title={data.news[0].title} path={data.news[0].photo.path}>
-          {data.news[0].content}
-        </News>
-        <News title={data.news[0].title} path={data.news[0].photo.path}>
-          {data.news[0].content}
-        </News>
-        <News title={data.news[0].title} path={data.news[0].photo.path}>
-          {data.news[0].content}
-        </News>
-        <News title={data.news[0].title} path={data.news[0].photo.path}>
-          {data.news[0].content}
-        </News>
-        <News title={data.news[0].title} path={data.news[0].photo.path}>
-          {data.news[0].content}
-        </News>
-        <News title={data.news[0].title} path={data.news[0].photo.path}>
-          {data.news[0].content}
-        </News>
-        <News title={data.news[0].title} path={data.news[0].photo.path}>
-          {data.news[0].content}
-        </News>
-        <News title={data.news[0].title} path={data.news[0].photo.path}>
-          {data.news[0].content}
-        </News>
-        <News title={data.news[0].title} path={data.news[0].photo.path}>
-          {data.news[0].content}
-        </News>
-        <News title={data.news[0].title} path={data.news[0].photo.path}>
-          {data.news[0].content}
-        </News>
+        {data.news.map((news: MainPageNews) => (
+          <News
+            title={news.title}
+            path={news.photo.path}
+            date={news.date}
+            key={news._id}
+          >
+            {news.content}
+          </News>
+        ))}
       </NewsTemplate>
-      {/* Test news */}
     </>
   );
 };

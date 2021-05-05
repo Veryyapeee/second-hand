@@ -2,14 +2,15 @@
 
 .newsContainer {
   width: 100%;
+  height: 10em;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   box-shadow: $shadowContainer;
   .imgContainer {
-    .img {
-      width: 100%;
-      height: 5em;
-    }
+    height: 100%;
+    min-height: 6em;
+    background-size: cover;
+    background-position: center;
   }
   .textContainer {
     padding: 1em;
