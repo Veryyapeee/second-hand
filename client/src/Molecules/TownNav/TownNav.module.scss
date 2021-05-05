@@ -2,10 +2,19 @@
 
 .linkCon {
   text-decoration: none;
-  width: 100%;
+  width: 50%;
+  margin: 0 auto;
+  min-width: 250px;
 }
 .cardWrapper {
   box-shadow: $shadowContainer;
   padding: 1em;
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  .icon {
+    color: $fontBlack;
+  }
 }
