@@ -5,6 +5,15 @@
   width: 50%;
   margin: 0 auto;
   min-width: 250px;
+  transition: transform 0.2s ease-in;
+  &:hover {
+    transform: translateY(-7%);
+    transition: transform 0.2s ease-in;
+    .icon {
+      color: $fontBlue;
+      transition: color 0.2s ease-in;
+    }
+  }
 }
 .cardWrapper {
   box-shadow: $shadowContainer;
@@ -16,5 +25,6 @@
   align-items: center;
   .icon {
     color: $fontBlack;
+    transition: color 0.2s ease-in;
   }
 }

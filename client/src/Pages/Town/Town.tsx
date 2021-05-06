@@ -13,6 +13,8 @@ import CenterBlueTitle from "Atoms/CenterBlueTitle/CenterBlueTitle";
 
 import { ShopInTown } from "Utils/types";
 
+import styles from "./Town.module.scss";
+
 const Town = () => {
   const { townId }: any = useParams();
   // Fetch town from API
@@ -30,11 +32,13 @@ const Town = () => {
       </MainPageIntro>
       <PageInfo>
         <CenterBlueTitle>Nasze sklepy</CenterBlueTitle>
-        {data.shops.map((townShop: ShopInTown) => (
-          <TownNav storeId={townShop.id} key={townShop.id} townId={townId}>
-            {townShop.name}
-          </TownNav>
-        ))}
+        <div className={styles.wrap}>
+          {data.shops.map((townShop: ShopInTown) => (
+            <TownNav storeId={townShop.id} key={townShop.id} townId={townId}>
+              {townShop.name}
+            </TownNav>
+          ))}
+        </div>
       </PageInfo>
     </>
   );

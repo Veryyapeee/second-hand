@@ -26,7 +26,7 @@ const variants = {
 // @props
 // towns - towns objects fetched from API
 const HeaderClient: React.FC<Props> = ({ children }) => {
-  const [sideBar, setSideBar] = useState<boolean>(true);
+  const [sideBar, setSideBar] = useState<boolean>(false);
   const [windowWidth, setWindowWidth] = useState<number>(getWindowWidth());
 
   // Get window with with every resize
