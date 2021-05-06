@@ -1,0 +1,18 @@
+@import "styles/variables.scss";
+
+.title {
+  color: $fontWhite;
+  font-family: $fontRubik;
+  font-weight: 500;
+  position: relative;
+  &::after {
+    content: "";
+    height: 0.2em;
+    width: 3em;
+    background: $backgroundWhite;
+    border-radius: 1.2em;
+    position: absolute;
+    bottom: -0.2em;
+    left: 0;
+  }
+}

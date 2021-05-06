@@ -1,0 +1,19 @@
+{
+  "name": "second-hand",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Veryyapeee/second-hand.git",
+  "author": "Cyprian Zamiara <veryyapeee@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "client": "cd client && yarn start",
+    "server": "cd Server && yarn dev",
+    "dev": "concurrently \"yarn server\" \"yarn client\""
+  },
+  "devDependencies": {
+    "concurrently": "^6.0.2"
+  },
+  "dependencies": {
+    "react-icons": "^4.2.0"
+  }
+}

@@ -1,0 +1,24 @@
+@import "styles/variables.scss";
+
+.newsContainer {
+  width: 100%;
+  height: 10em;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  box-shadow: $shadowContainer;
+  .imgContainer {
+    height: 100%;
+    min-height: 6em;
+    background-size: cover;
+    background-position: center;
+  }
+  .textContainer {
+    padding: 1em;
+    font-size: 1.1em;
+    gap: 0.5em;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    @include scrollbar;
+  }
+}

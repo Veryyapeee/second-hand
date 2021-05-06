@@ -1,0 +1,12 @@
+@import "styles/variables.scss";
+
+// Add hover
+
+.button {
+  background: $backgroundBlueLight;
+  border: none;
+  color: $fontWhite;
+  font-family: $fontRubik;
+  padding: 0.7em 4em;
+  border-radius: 2em;
+}

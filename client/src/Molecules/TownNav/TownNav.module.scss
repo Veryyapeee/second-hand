@@ -1,0 +1,30 @@
+@import "styles/variables.scss";
+
+.linkCon {
+  text-decoration: none;
+  width: 50%;
+  margin: 0 auto;
+  min-width: 250px;
+  transition: transform 0.2s ease-in;
+  &:hover {
+    transform: translateY(-7%);
+    transition: transform 0.2s ease-in;
+    .icon {
+      color: $fontBlue;
+      transition: color 0.2s ease-in;
+    }
+  }
+}
+.cardWrapper {
+  box-shadow: $shadowContainer;
+  padding: 1em;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  .icon {
+    color: $fontBlack;
+    transition: color 0.2s ease-in;
+  }
+}
