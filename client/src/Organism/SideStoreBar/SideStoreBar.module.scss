@@ -1,0 +1,10 @@
+.mainWrapper {
+  background: red;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
