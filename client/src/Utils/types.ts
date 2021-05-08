@@ -33,3 +33,5 @@ export interface ShopInTown {
     id: string;
     name: string;
 }
+
+export type TParams = { townId: string; storeId: string };

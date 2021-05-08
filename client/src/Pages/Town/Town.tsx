@@ -11,12 +11,12 @@ import getTown from "Api/client/getSingleTown";
 import PageInfo from "Organism/PageInfo/PageInfo";
 import CenterBlueTitle from "Atoms/CenterBlueTitle/CenterBlueTitle";
 
-import { ShopInTown } from "Utils/types";
+import { ShopInTown, TParams } from "Utils/types";
 
 import styles from "./Town.module.scss";
 
 const Town = () => {
-  const { townId }: any = useParams();
+  const { townId }: TParams = useParams();
   // Fetch town from API
   const { isLoading, data } = useQuery(
     ["town", townId],
