@@ -11,14 +11,14 @@ import getTown from "Api/client/getSingleTown";
 import PageInfo from "Organism/PageInfo/PageInfo";
 import CenterBlueTitle from "Atoms/CenterBlueTitle/CenterBlueTitle";
 
-import { ShopInTown } from "Utils/types";
+import { ShopInTown, TParams, Town, defaultTown } from "Utils/types";
 
 import styles from "./Town.module.scss";
 
-const Town = () => {
-  const { townId }: any = useParams();
+const TownPage = () => {
+  const { townId }: TParams = useParams();
   // Fetch town from API
-  const { isLoading, data } = useQuery(
+  const { isLoading, data = defaultTown } = useQuery<Town, Error>(
     ["town", townId],
     async () => await getTown(townId)
   );
@@ -28,7 +28,7 @@ const Town = () => {
   return (
     <>
       <MainPageIntro>
-        <MainTitle> {data!.name} </MainTitle>
+        <MainTitle> {data.name} </MainTitle>
       </MainPageIntro>
       <PageInfo>
         <CenterBlueTitle>Nasze sklepy</CenterBlueTitle>
@@ -44,4 +44,4 @@ const Town = () => {
   );
 };
 
-export default Town;
+export default TownPage;

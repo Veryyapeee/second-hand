@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./RedSubtitleStore.module.scss";
 
 interface Props {
-  children: string;
+  children: any[];
 }
 
 const RedSubtitleStore: React.FC<Props> = ({ children }) => {

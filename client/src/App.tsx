@@ -9,8 +9,8 @@ const MainPage = React.lazy(() => import("Pages/MainPage/MainPage"));
 const ClientTemplate = React.lazy(
   () => import("Templates/ClientTemplate/ClientTemplate")
 );
-
 const Town = React.lazy(() => import("Pages/Town/Town"));
+const Store = React.lazy(() => import("Pages/Store/Store"));
 
 const Hello = () => {
   return <span>Protected</span>;
@@ -43,7 +43,7 @@ const App: React.FC = () => {
                 <Route
                   exact
                   path="/home/town/:townId/store/:storeId"
-                  render={() => <span>Store</span>}
+                  component={Store}
                 />
                 <Route exact path="/home/town/:townId" component={Town} />
                 <Route render={() => <Redirect to="/not-found" />} />

@@ -2,14 +2,14 @@ import agent from 'Axios/axiosMain';
 import toastNotify from 'Utils/toastNotify';
 
 // Get towns
-const getTown = async (townId: string) => {
+const getMainPage = async (townId: string, storeId: string) => {
     try {
-        const data = await agent.MainPage.getSingleTown(townId);
-        return data.data;
+        const data = await agent.MainPage.getSingleStore(townId, storeId);
+        return data.data
     } catch (err) {
         toastNotify(err.response.status);
         return err;
     }
 }
 
-export default getTown;
+export default getMainPage;

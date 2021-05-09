@@ -6,7 +6,7 @@ import DateMark from "Atoms/DateMark/DateMark";
 
 import styles from "./News.module.scss";
 
-import axios from "Axios/axiosMain";
+import { instance } from "Axios/axiosMain";
 
 interface Props {
   children: string;
@@ -16,7 +16,10 @@ interface Props {
 }
 
 const News: React.FC<Props> = ({ children, path, title, date }) => {
-  const replacedPath = `${axios.defaults.baseURL}/${path}`.replace(/\\/g, "/");
+  const replacedPath = `${instance.defaults.baseURL}/${path}`.replace(
+    /\\/g,
+    "/"
+  );
   return (
     <div className={styles.newsContainer}>
       <div

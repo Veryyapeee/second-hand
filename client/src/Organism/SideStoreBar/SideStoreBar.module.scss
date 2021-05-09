@@ -1,0 +1,19 @@
+@import "styles/variables.scss";
+
+.mainWrapper {
+  background: $backgroundWhiteDark;
+  box-shadow: $shadowContainer;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  top: 15%;
+  transform: translateY(-15%);
+  height: 60vh;
+  min-height: 400px;
+  width: 20vw;
+  min-width: 170px;
+  max-width: 300px;
+  overflow-y: auto;
+  @include scrollbar;
+}
