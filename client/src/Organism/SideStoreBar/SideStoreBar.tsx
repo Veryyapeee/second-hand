@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
+import SideNavButton from "Atoms/SideNavButton/SideNavButton";
+
 import styles from "./SideStoreBar.module.scss";
 
 interface Props {
@@ -18,10 +20,11 @@ const SideStoreBar: React.FC<Props> = ({ children }) => {
     <motion.div
       className={styles.mainWrapper}
       variants={variants}
+      style={{ pointerEvents: open ? "all" : "none" }}
       animate={open ? "open" : "closed"}
     >
       {children}
-      <button onClick={() => setOpen(!open)}>Strzałka xD</button>
+      <SideNavButton clicked={() => setOpen(!open)} />
     </motion.div>
   );
 };

@@ -47,16 +47,18 @@ export interface StoreAddress {
     town: string;
 }
 export interface Store {
-    _id: string;
-    name: string;
-    description: string;
-    address: StoreAddress;
-    contact: string;
-    suppDay: string;
-    news: MainPageNews;
-    gallery: Gallery[];
-    openHours: OpenHours;
-    price: StorePrice;
+    store: {
+        _id: string;
+        name: string;
+        description: string;
+        address: StoreAddress;
+        contact: string;
+        suppDay: string;
+        news: MainPageNews;
+        gallery: Gallery[];
+        openHours: OpenHours;
+        price: StorePrice;
+    }
 }
 
 export interface Gallery {
@@ -103,19 +105,22 @@ export const defaultTown = {
 }
 
 export const defaultStore = {
-    _id: '',
-    name: '',
-    description: '',
-    address: {
-        street: '',
-        town: '',
-    },
-    contact: '',
-    suppDay: '',
-    news: [],
-    gallery: [],
-    openHours: {},
-    price: {},
+    store: {
+        _id: '',
+        name: '',
+        description: '',
+        address: {
+            street: '',
+            town: '',
+        },
+        contact: '',
+        suppDay: '',
+        news: [],
+        gallery: [],
+        openHours: {},
+        price: {},
+    }
+
 }
 
 

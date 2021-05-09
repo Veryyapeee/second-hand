@@ -1,0 +1,11 @@
+@import "styles/variables.scss";
+.sideBtn {
+  pointer-events: all;
+  position: absolute;
+  bottom: 0.1em;
+  right: 0.1em;
+  &:hover {
+    cursor: pointer;
+    color: $fontBlue;
+  }
+}

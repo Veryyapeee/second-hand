@@ -50,8 +50,10 @@ const StorePage = () => {
       <MainPageIntro>
         <div className={styles.innerCon}>
           <MainTitle>Dzień dobry!</MainTitle>
-          <MainSubtitle>{dataStore.address.street}</MainSubtitle>
-          <RedSubtitleStore>Dostawy w {dataStore.suppDay}</RedSubtitleStore>
+          <MainSubtitle>{dataStore.store.address.street}</MainSubtitle>
+          <RedSubtitleStore>
+            Dostawy w {dataStore.store.suppDay}
+          </RedSubtitleStore>
         </div>
       </MainPageIntro>
       <SideStoreBar>

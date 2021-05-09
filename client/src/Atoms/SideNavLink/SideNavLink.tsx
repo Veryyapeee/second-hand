@@ -14,6 +14,7 @@ const SideNavLink: React.FC<Props> = ({ children, townId, storeId }) => {
     <NavLink
       to={`/home/town/${townId}/store/${storeId}`}
       activeClassName={styles.active}
+      className={styles.navLink}
     >
       {children}
     </NavLink>
