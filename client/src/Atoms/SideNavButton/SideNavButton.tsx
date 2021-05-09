@@ -7,13 +7,14 @@ import styles from "./SideNavButton.module.scss";
 
 interface Props {
   clicked: () => void;
+  open: boolean;
 }
 
-const SideNavButton: React.FC<Props> = ({ clicked }) => {
+const SideNavButton: React.FC<Props> = ({ clicked, open }) => {
   return (
     <span onClick={clicked}>
       <IconContext.Provider value={{ className: styles.sideBtn }}>
-        <Icon.FaArrowRight />
+        {open ? <Icon.FaArrowLeft /> : <Icon.FaArrowRight />}
       </IconContext.Provider>
     </span>
   );

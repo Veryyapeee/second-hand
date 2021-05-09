@@ -24,7 +24,7 @@ const SideStoreBar: React.FC<Props> = ({ children }) => {
       animate={open ? "open" : "closed"}
     >
       {children}
-      <SideNavButton clicked={() => setOpen(!open)} />
+      <SideNavButton clicked={() => setOpen(!open)} open={open} />
     </motion.div>
   );
 };
