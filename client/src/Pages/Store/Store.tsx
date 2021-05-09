@@ -13,24 +13,35 @@ import SideStoreBar from "Organism/SideStoreBar/SideStoreBar";
 
 import getSingleStore from "Api/client/getSingleStore";
 import getSingleTown from "Api/client/getSingleTown";
-import { ShopInTown, TParams } from "Utils/types";
+
+import {
+  ShopInTown,
+  TParams,
+  Store,
+  Town,
+  defaultTown,
+  defaultStore,
+} from "Utils/types";
 
 import styles from "./Store.module.scss";
 
-const Store = () => {
+const StorePage = () => {
   const { townId, storeId }: TParams = useParams();
 
   /* Make it context, add little components */
-  const dataTown = useQuery(
-    ["town", townId],
-    async () => await getSingleTown(townId)
-  );
-  const dataStore = useQuery(
+  const { isLoading: isLoadingTown, data: dataTown = defaultTown } = useQuery<
+    Town,
+    Error
+  >(["town", townId], async () => await getSingleTown(townId));
+  const {
+    isLoading: isLoadingStore,
+    data: dataStore = defaultStore,
+  } = useQuery<Store, Error>(
     ["store", storeId],
     async () => await getSingleStore(townId, storeId)
   );
 
-  if (dataTown.isLoading || dataStore.isLoading) {
+  if (isLoadingStore || isLoadingTown) {
     return <Spinner />;
   }
 
@@ -39,14 +50,12 @@ const Store = () => {
       <MainPageIntro>
         <div className={styles.innerCon}>
           <MainTitle>Dzień dobry!</MainTitle>
-          <MainSubtitle>{dataStore.data.store.address.street}</MainSubtitle>
-          <RedSubtitleStore>
-            Dostawy w {dataStore.data.store.suppDay}!
-          </RedSubtitleStore>
+          <MainSubtitle>{dataStore.address.street}</MainSubtitle>
+          <RedSubtitleStore>Dostawy w {dataStore.suppDay}</RedSubtitleStore>
         </div>
       </MainPageIntro>
       <SideStoreBar>
-        {dataTown.data.shops.map((shop: ShopInTown) => (
+        {dataTown.shops.map((shop: ShopInTown) => (
           <SideNavLink townId={townId} storeId={shop.id} key={shop.id}>
             {shop.name}
           </SideNavLink>
@@ -56,4 +65,4 @@ const Store = () => {
   );
 };
 
-export default Store;
+export default StorePage;

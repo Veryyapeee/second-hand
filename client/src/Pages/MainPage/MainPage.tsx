@@ -18,10 +18,13 @@ import getMainPage from "Api/client/getMainPage";
 
 import styles from "./MainPage.module.scss";
 
-import { MainPageNews } from "Utils/types";
+import { MainPageNews, MainPage, defaultMainPage } from "Utils/types";
 
-const MainPage = () => {
-  const { isLoading, data }: any = useQuery("mainPage", getMainPage);
+const LadingPage = () => {
+  const { isLoading, data = defaultMainPage } = useQuery<MainPage, Error>(
+    "mainPage",
+    getMainPage
+  );
   if (isLoading) {
     return <Spinner />;
   }
@@ -55,4 +58,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default LadingPage;

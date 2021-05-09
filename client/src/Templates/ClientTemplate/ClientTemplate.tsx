@@ -7,13 +7,15 @@ import Spinner from "Atoms/Spinner/Spinner";
 
 import getTowns from "Api/client/getTowns";
 
+import { Town } from "Utils/types";
+
 interface Props {
   children: JSX.Element | JSX.Element[] | string;
 }
 
 const ClientTemplate: React.FC<Props> = ({ children }) => {
   // Fetch towns from API
-  const { isLoading, data } = useQuery("towns", getTowns);
+  const { isLoading, data = [] } = useQuery<Town[], Error>("towns", getTowns);
   if (isLoading) {
     return <Spinner />;
   }
