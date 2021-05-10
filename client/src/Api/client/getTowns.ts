@@ -1,16 +1,23 @@
 import agent from 'Axios/axiosMain';
+import { useQuery } from 'react-query';
 import toastNotify from 'Utils/toastNotify';
+import { Town } from 'Utils/types';
 
-// Get towns
-const getTowns = async () => {
 
-    try {
-        const data = await agent.MainPage.getTowns();
-        return data.data
-    } catch (err) {
-        toastNotify(err.response.status);
-        return err;
-    }
-}
+// Get all towns
+const useGetTowns = () => {
+    const { isLoading, data = [] } = useQuery<Town[], Error>(['towns'],
+        async () => {
+            try {
+                const data = await agent.MainPage.getTowns();
+                return data.data
+            } catch (err) {
+                toastNotify(err.response.status);
+                return err;
+            }
+        }
+    );
+    return { isLoading, data };
+};
 
-export default getTowns;
+export default useGetTowns;

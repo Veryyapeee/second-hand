@@ -1,13 +1,10 @@
 import React from "react";
-import { useQuery } from "react-query";
 
 import HeaderClient from "Organism/HeaderClient/HeaderClient";
 import Footer from "Organism/Footer/Footer";
 import Spinner from "Atoms/Spinner/Spinner";
 
-import getTowns from "Api/client/getTowns";
-
-import { Town } from "Utils/types";
+import useGetTowns from "Api/client/getTowns";
 
 interface Props {
   children: JSX.Element | JSX.Element[] | string;
@@ -15,7 +12,7 @@ interface Props {
 
 const ClientTemplate: React.FC<Props> = ({ children }) => {
   // Fetch towns from API
-  const { isLoading, data = [] } = useQuery<Town[], Error>("towns", getTowns);
+  const { isLoading, data } = useGetTowns();
   if (isLoading) {
     return <Spinner />;
   }
