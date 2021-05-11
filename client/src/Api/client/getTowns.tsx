@@ -1,17 +1,17 @@
 import agent from "Axios/axiosMain";
 import { useQuery } from "react-query";
 import toastNotify from "Utils/toastNotify";
+import { Town } from "Utils/types";
 
-import { defaultStore, Store } from "Utils/types";
-
-const useGetSingleStore = (townId: string, storeId: string) => {
+// Get all towns
+const useGetTowns = () => {
   const {
     isLoading,
-    data = defaultStore,
+    data = [],
     error,
-  } = useQuery<Store, Error>(["store", storeId], async () => {
+  } = useQuery<Town[], Error>(["towns"], async () => {
     try {
-      const data = await agent.MainPage.getSingleStore(townId, storeId);
+      const data = await agent.MainPage.getTowns();
       return data.data;
     } catch (err) {
       toastNotify(err.response.status);
@@ -21,4 +21,4 @@ const useGetSingleStore = (townId: string, storeId: string) => {
   return { isLoading, data, error };
 };
 
-export default useGetSingleStore;
+export default useGetTowns;

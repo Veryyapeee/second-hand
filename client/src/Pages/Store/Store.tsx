@@ -1,11 +1,11 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
-import Spinner from "Atoms/Spinner/Spinner";
 import MainPageIntro from "Molecules/MainPageIntro/MainPageIntro";
 import MainTitle from "Atoms/MainTitle/MainTitle";
 import MainSubtitle from "Atoms/MainSubtitle/MainSubtitle";
 import RedSubtitleStore from "Atoms/RedSubtitleStore/RedSubtitleStore";
+import FetchHandler from "HOC/FetchHandler/FetchHandler";
 
 import SideNavLink from "Atoms/SideNavLink/SideNavLink";
 import SideStoreBar from "Organism/SideStoreBar/SideStoreBar";
@@ -21,18 +21,23 @@ const StorePage = () => {
   const { townId, storeId }: TParams = useParams();
 
   /* Make it context, add little components */
-  const { isLoading: isLoadingTown, data: dataTown } = useGetSingleTown(townId);
-  const { isLoading: isLoadingStore, data: dataStore } = useGetSingleStore(
-    townId,
-    storeId
-  );
-
-  if (isLoadingStore || isLoadingTown) {
-    return <Spinner />;
-  }
+  const {
+    isLoading: isLoadingTown,
+    data: dataTown,
+    error: errorTown,
+  } = useGetSingleTown(townId);
+  const {
+    isLoading: isLoadingStore,
+    data: dataStore,
+    error: errorStore,
+  } = useGetSingleStore(townId, storeId);
 
   return (
-    <>
+    <FetchHandler
+      loading={isLoadingTown || isLoadingStore}
+      data={dataTown || dataStore}
+      error={errorTown || errorStore}
+    >
       <MainPageIntro>
         <div className={styles.innerCon}>
           <MainTitle>Dzień dobry!</MainTitle>
@@ -49,7 +54,7 @@ const StorePage = () => {
           </SideNavLink>
         ))}
       </SideStoreBar>
-    </>
+    </FetchHandler>
   );
 };
 

@@ -1,10 +1,10 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
-import Spinner from "Atoms/Spinner/Spinner";
 import MainPageIntro from "Molecules/MainPageIntro/MainPageIntro";
 import MainTitle from "Atoms/MainTitle/MainTitle";
 import TownNav from "Molecules/TownNav/TownNav";
+import FetchHandler from "HOC/FetchHandler/FetchHandler";
 
 import PageInfo from "Organism/PageInfo/PageInfo";
 import CenterBlueTitle from "Atoms/CenterBlueTitle/CenterBlueTitle";
@@ -17,12 +17,10 @@ import useGetSingleTown from "Api/client/getSingleTown";
 const TownPage = () => {
   const { townId }: TParams = useParams();
   // Fetch town from API
-  const { isLoading, data } = useGetSingleTown(townId);
-  if (isLoading) {
-    return <Spinner />;
-  }
+  const { isLoading, data, error } = useGetSingleTown(townId);
+
   return (
-    <>
+    <FetchHandler loading={isLoading} data={data} error={error}>
       <MainPageIntro>
         <MainTitle> {data.name} </MainTitle>
       </MainPageIntro>
@@ -36,7 +34,7 @@ const TownPage = () => {
           ))}
         </div>
       </PageInfo>
-    </>
+    </FetchHandler>
   );
 };
 

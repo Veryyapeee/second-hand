@@ -5,7 +5,7 @@ import { defaultTown, Town } from 'Utils/types';
 
 // Get single town
 const useGetSingleTown = (townId: string) => {
-    const { isLoading, data = defaultTown } = useQuery<Town, Error>(
+    const { isLoading, data = defaultTown, error } = useQuery<Town, Error>(
         ["town", townId],
         async () => {
             try {
@@ -17,7 +17,7 @@ const useGetSingleTown = (townId: string) => {
             }
         }
     );
-    return { isLoading, data };
+    return { isLoading, data, error };
 };
 
 export default useGetSingleTown;
