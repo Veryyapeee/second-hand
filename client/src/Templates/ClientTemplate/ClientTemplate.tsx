@@ -10,6 +10,9 @@ interface Props {
   children: JSX.Element | JSX.Element[] | string;
 }
 
+//Demo context
+// export const TownsContext = React.createContext({});
+
 const ClientTemplate: React.FC<Props> = ({ children }) => {
   // Fetch towns from API
   const { isLoading, data, error } = useGetTowns();
@@ -17,6 +20,7 @@ const ClientTemplate: React.FC<Props> = ({ children }) => {
   return (
     <FetchHandler loading={isLoading} data={data} error={error}>
       <HeaderClient towns={data} />
+      {/*  <TownsContext.Provider value={data}>{children}</TownsContext.Provider> */}
       {children}
       <Footer />
     </FetchHandler>

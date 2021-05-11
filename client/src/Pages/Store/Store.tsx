@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 
 import MainPageIntro from "Molecules/MainPageIntro/MainPageIntro";
@@ -13,11 +13,17 @@ import SideStoreBar from "Organism/SideStoreBar/SideStoreBar";
 import useGetSingleStore from "Api/client/getSingleStore";
 import useGetSingleTown from "Api/client/getSingleTown";
 
+// Import context
+// import { TownsContext } from "Templates/ClientTemplate/ClientTemplate";
+
 import { ShopInTown, TParams } from "Utils/types";
 
 import styles from "./Store.module.scss";
 
 const StorePage = () => {
+  // Use context example
+  // const test = useContext(TownsContext);
+
   const { townId, storeId }: TParams = useParams();
 
   /* Make it context, add little components */
