@@ -5,13 +5,13 @@ import Footer from "Organism/Footer/Footer";
 import FetchHandler from "HOC/FetchHandler/FetchHandler";
 
 import useGetTowns from "Api/client/getTowns";
-
+import { Town } from "Utils/types";
 interface Props {
   children: JSX.Element | JSX.Element[] | string;
 }
 
-//Demo context
-// export const TownsContext = React.createContext({});
+// Context to pass towns
+export const TownsContext = React.createContext<Town[]>([]);
 
 const ClientTemplate: React.FC<Props> = ({ children }) => {
   // Fetch towns from API
@@ -20,8 +20,7 @@ const ClientTemplate: React.FC<Props> = ({ children }) => {
   return (
     <FetchHandler loading={isLoading} data={data} error={error}>
       <HeaderClient towns={data} />
-      {/*  <TownsContext.Provider value={data}>{children}</TownsContext.Provider> */}
-      {children}
+      <TownsContext.Provider value={data}>{children}</TownsContext.Provider>
       <Footer />
     </FetchHandler>
   );

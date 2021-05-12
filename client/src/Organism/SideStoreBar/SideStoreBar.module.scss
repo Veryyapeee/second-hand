@@ -5,7 +5,7 @@
   box-shadow: $shadowContainer;
   display: flex;
   flex-direction: column;
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 15%;
   transform: translateY(-15%);

@@ -54,7 +54,7 @@ export interface Store {
         address: StoreAddress;
         contact: string;
         suppDay: string;
-        news: MainPageNews;
+        news: MainPageNews[];
         gallery: Gallery[];
         openHours: OpenHours;
         price: StorePrice;
