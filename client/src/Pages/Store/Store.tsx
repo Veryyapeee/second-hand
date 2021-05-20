@@ -1,52 +1,56 @@
-import React from "react";
-import { useQuery } from "react-query";
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 
-import Spinner from "Atoms/Spinner/Spinner";
 import MainPageIntro from "Molecules/MainPageIntro/MainPageIntro";
 import MainTitle from "Atoms/MainTitle/MainTitle";
 import MainSubtitle from "Atoms/MainSubtitle/MainSubtitle";
 import RedSubtitleStore from "Atoms/RedSubtitleStore/RedSubtitleStore";
+import FetchHandler from "HOC/FetchHandler/FetchHandler";
 
 import SideNavLink from "Atoms/SideNavLink/SideNavLink";
 import SideStoreBar from "Organism/SideStoreBar/SideStoreBar";
+import PageInfo from "Organism/PageInfo/PageInfo";
+import CenterBlueTitle from "Atoms/CenterBlueTitle/CenterBlueTitle";
+import SubTextBlack from "Atoms/SubTextBlack/SubTextBlack";
 
-import getSingleStore from "Api/client/getSingleStore";
-import getSingleTown from "Api/client/getSingleTown";
+import NewsTemplate from "Templates/NewsTemplate/NewsTemplate";
+import News from "Molecules/News/News";
 
-import {
-  ShopInTown,
-  TParams,
-  Store,
-  Town,
-  defaultTown,
-  defaultStore,
-} from "Utils/types";
+import useGetSingleStore from "Api/client/getSingleStore";
+
+// Import context
+import { TownsContext } from "Templates/ClientTemplate/ClientTemplate";
+
+import { MainPageNews, ShopInTown, Town, TParams } from "Utils/types";
 
 import styles from "./Store.module.scss";
 
 const StorePage = () => {
+  // Params
   const { townId, storeId }: TParams = useParams();
 
-  /* Make it context, add little components */
-  const { isLoading: isLoadingTown, data: dataTown = defaultTown } = useQuery<
-    Town,
-    Error
-  >(["town", townId], async () => await getSingleTown(townId));
-  const {
-    isLoading: isLoadingStore,
-    data: dataStore = defaultStore,
-  } = useQuery<Store, Error>(
-    ["store", storeId],
-    async () => await getSingleStore(townId, storeId)
+  //Context with towns
+  const towns = useContext(TownsContext);
+  const currentTown: Town | undefined = towns.find(
+    (town: Town) => town._id === townId
   );
 
-  if (isLoadingStore || isLoadingTown) {
-    return <Spinner />;
-  }
+  // Fetch store
+  const {
+    isLoading: isLoadingStore,
+    data: dataStore,
+    error: errorStore,
+  } = useGetSingleStore(townId, storeId);
 
   return (
-    <>
+    <FetchHandler loading={isLoadingStore} data={dataStore} error={errorStore}>
+      <SideStoreBar>
+        {currentTown!.shops.map((shop: ShopInTown) => (
+          <SideNavLink townId={townId} storeId={shop.id} key={shop.id}>
+            {shop.name}
+          </SideNavLink>
+        ))}
+      </SideStoreBar>
       <MainPageIntro>
         <div className={styles.innerCon}>
           <MainTitle>Dzień dobry!</MainTitle>
@@ -56,14 +60,23 @@ const StorePage = () => {
           </RedSubtitleStore>
         </div>
       </MainPageIntro>
-      <SideStoreBar>
-        {dataTown.shops.map((shop: ShopInTown) => (
-          <SideNavLink townId={townId} storeId={shop.id} key={shop.id}>
-            {shop.name}
-          </SideNavLink>
+      <PageInfo>
+        <CenterBlueTitle>Witaj na {dataStore.store.name}</CenterBlueTitle>
+        <SubTextBlack>{dataStore.store.description}</SubTextBlack>
+      </PageInfo>
+      <NewsTemplate>
+        {dataStore.store.news.map((news: MainPageNews) => (
+          <News
+            title={news.title}
+            path={news.photo.path}
+            date={news.date}
+            key={news._id}
+          >
+            {news.content}
+          </News>
         ))}
-      </SideStoreBar>
-    </>
+      </NewsTemplate>
+    </FetchHandler>
   );
 };
 

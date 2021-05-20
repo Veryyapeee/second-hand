@@ -1,32 +1,26 @@
 import React from "react";
-import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 
-import Spinner from "Atoms/Spinner/Spinner";
 import MainPageIntro from "Molecules/MainPageIntro/MainPageIntro";
 import MainTitle from "Atoms/MainTitle/MainTitle";
 import TownNav from "Molecules/TownNav/TownNav";
+import FetchHandler from "HOC/FetchHandler/FetchHandler";
 
-import getTown from "Api/client/getSingleTown";
 import PageInfo from "Organism/PageInfo/PageInfo";
 import CenterBlueTitle from "Atoms/CenterBlueTitle/CenterBlueTitle";
 
-import { ShopInTown, TParams, Town, defaultTown } from "Utils/types";
+import { ShopInTown, TParams } from "Utils/types";
 
 import styles from "./Town.module.scss";
+import useGetSingleTown from "Api/client/getSingleTown";
 
 const TownPage = () => {
   const { townId }: TParams = useParams();
   // Fetch town from API
-  const { isLoading, data = defaultTown } = useQuery<Town, Error>(
-    ["town", townId],
-    async () => await getTown(townId)
-  );
-  if (isLoading) {
-    return <Spinner />;
-  }
+  const { isLoading, data, error } = useGetSingleTown(townId);
+
   return (
-    <>
+    <FetchHandler loading={isLoading} data={data} error={error}>
       <MainPageIntro>
         <MainTitle> {data.name} </MainTitle>
       </MainPageIntro>
@@ -40,7 +34,7 @@ const TownPage = () => {
           ))}
         </div>
       </PageInfo>
-    </>
+    </FetchHandler>
   );
 };
 

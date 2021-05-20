@@ -16,13 +16,13 @@ const HeaderClient: React.FC<Props> = ({ towns }) => {
   return (
     <Header>
       {towns.map((town: Town) => (
-        <>
+        <div key={town._id}>
           {town.shops.length > 0 && (
             <NavElement path={`/home/town/${town._id}`} key={town._id}>
               {town.name}
             </NavElement>
           )}
-        </>
+        </div>
       ))}
       <HeaderButton path="/work">Pracuj u nas!</HeaderButton>
     </Header>

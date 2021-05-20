@@ -1,31 +1,28 @@
 import React from "react";
-import { useQuery } from "react-query";
 
 import HeaderClient from "Organism/HeaderClient/HeaderClient";
 import Footer from "Organism/Footer/Footer";
-import Spinner from "Atoms/Spinner/Spinner";
+import FetchHandler from "HOC/FetchHandler/FetchHandler";
 
-import getTowns from "Api/client/getTowns";
-
+import useGetTowns from "Api/client/getTowns";
 import { Town } from "Utils/types";
-
 interface Props {
   children: JSX.Element | JSX.Element[] | string;
 }
 
+// Context to pass towns
+export const TownsContext = React.createContext<Town[]>([]);
+
 const ClientTemplate: React.FC<Props> = ({ children }) => {
   // Fetch towns from API
-  const { isLoading, data = [] } = useQuery<Town[], Error>("towns", getTowns);
-  if (isLoading) {
-    return <Spinner />;
-  }
+  const { isLoading, data, error } = useGetTowns();
 
   return (
-    <>
+    <FetchHandler loading={isLoading} data={data} error={error}>
       <HeaderClient towns={data} />
-      {children}
+      <TownsContext.Provider value={data}>{children}</TownsContext.Provider>
       <Footer />
-    </>
+    </FetchHandler>
   );
 };
 

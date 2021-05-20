@@ -1,7 +1,5 @@
 import React from "react";
-import { useQuery } from "react-query";
 
-import Spinner from "Atoms/Spinner/Spinner";
 import CoronaInfo from "Molecules/CoronaInfo/CoronaInfo";
 
 import MainPageIntro from "Molecules/MainPageIntro/MainPageIntro";
@@ -13,23 +11,19 @@ import CenterBlueTitle from "Atoms/CenterBlueTitle/CenterBlueTitle";
 import SubTextBlack from "Atoms/SubTextBlack/SubTextBlack";
 import News from "Molecules/News/News";
 import NewsTemplate from "Templates/NewsTemplate/NewsTemplate";
+import FetchHandler from "HOC/FetchHandler/FetchHandler";
 
-import getMainPage from "Api/client/getMainPage";
+import useGetMainPage from "Api/client/getMainPage";
 
 import styles from "./MainPage.module.scss";
 
-import { MainPageNews, MainPage, defaultMainPage } from "Utils/types";
+import { MainPageNews } from "Utils/types";
 
 const LadingPage = () => {
-  const { isLoading, data = defaultMainPage } = useQuery<MainPage, Error>(
-    "mainPage",
-    getMainPage
-  );
-  if (isLoading) {
-    return <Spinner />;
-  }
+  const { isLoading, data, error } = useGetMainPage();
+
   return (
-    <>
+    <FetchHandler loading={isLoading} data={data} error={error}>
       <MainPageIntro>
         <div className={styles.innerCon}>
           <MainTitle>Dzień dobry!</MainTitle>
@@ -54,7 +48,7 @@ const LadingPage = () => {
           </News>
         ))}
       </NewsTemplate>
-    </>
+    </FetchHandler>
   );
 };
 
