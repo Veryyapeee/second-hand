@@ -44,8 +44,7 @@ If you do not know if you have it installed on your computer and you still want 
 #### To run the project locally follow these steps:
 * *Clone this repository*
 * *Open repository in your code editor*
-* *Run command **yarn*** to install all dependencies
-* *Run command **yarn dev:i*** to run local server on localhost:3000
+* *Run command **yarn*** to install all dependencies (in server and client directory as well)
 * *Create .env file within the server catalog, this file should contain important information which lack of will cause fatal errors.*</br></br>
 **this is the data that you should add into .env file:**</br></br>
 MONGO_USER=\<you user name></br>
