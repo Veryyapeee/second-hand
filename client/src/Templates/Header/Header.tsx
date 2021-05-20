@@ -19,8 +19,13 @@ const getWindowWidth = (): number => {
 
 // Animation from framer-motion
 const variants = {
-  open: { opacity: 1, y: 0 },
-  closed: { opacity: 0, y: "-100%" },
+  open: { opacity: 1, y: 0, height: "auto", display: "block" },
+  closed: {
+    opacity: 0,
+    y: "-100%",
+    height: 0,
+    transitionEnd: { display: "none" },
+  },
 };
 
 // @props
@@ -53,6 +58,7 @@ const HeaderClient: React.FC<Props> = ({ children }) => {
         animate={!sideBar && windowWidth <= 900 ? "closed" : "open"}
         variants={variants}
         className={styles.navElements}
+        initial={{ display: "none", opacity: 0 }}
         style={{
           display: !sideBar && windowWidth <= 900 ? "none" : "flex",
         }}
