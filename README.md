@@ -58,4 +58,3 @@ JWT_PRIVATE_KEY=\<some random password></br>
 
 ### Demo link
 -----------------
-- -
