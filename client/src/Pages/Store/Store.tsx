@@ -15,6 +15,7 @@ import SubTextBlack from "Atoms/SubTextBlack/SubTextBlack";
 
 import NewsTemplate from "Templates/NewsTemplate/NewsTemplate";
 import News from "Molecules/News/News";
+import StoreDetails from "Templates/StoreDetails/StoreDetails";
 
 import useGetSingleStore from "Api/client/getSingleStore";
 
@@ -76,6 +77,7 @@ const StorePage = () => {
           </News>
         ))}
       </NewsTemplate>
+      <StoreDetails storeData={dataStore.store.openHours} />
     </FetchHandler>
   );
 };

@@ -15,5 +15,6 @@
   min-width: 170px;
   max-width: 300px;
   overflow-y: auto;
+  z-index: 10;
   @include scrollbar;
 }

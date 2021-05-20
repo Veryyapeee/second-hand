@@ -123,5 +123,6 @@ export const defaultStore = {
 
 }
 
+export const weekDays: string[] = ['Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota', 'Niedziela'];
 
 export type TParams = { townId: string; storeId: string };

@@ -1,0 +1,18 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1em;
+  .title {
+  }
+  .hourContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    .singleDayCon {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3em;
+    }
+  }
+}
