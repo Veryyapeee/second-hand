@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./SubTextBlack.module.scss";
 
 interface Props {
-  children: string;
+  children: string | String;
 }
 
 const SubTextBlack: React.FC<Props> = ({ children }) => {

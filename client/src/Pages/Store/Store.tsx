@@ -15,15 +15,26 @@ import SubTextBlack from "Atoms/SubTextBlack/SubTextBlack";
 
 import NewsTemplate from "Templates/NewsTemplate/NewsTemplate";
 import News from "Molecules/News/News";
+import StoreDetails from "Templates/StoreDetails/StoreDetails";
 
 import useGetSingleStore from "Api/client/getSingleStore";
 
 // Import context
 import { TownsContext } from "Templates/ClientTemplate/ClientTemplate";
 
-import { MainPageNews, ShopInTown, Town, TParams } from "Utils/types";
+import {
+  MainPageNews,
+  ShopInTown,
+  Town,
+  TParams,
+  Store,
+  defaultStore,
+} from "Utils/types";
 
 import styles from "./Store.module.scss";
+
+// Context for store
+export const StoreContext = React.createContext<Store>(defaultStore);
 
 const StorePage = () => {
   // Params
@@ -76,6 +87,9 @@ const StorePage = () => {
           </News>
         ))}
       </NewsTemplate>
+      <StoreContext.Provider value={dataStore.store}>
+        <StoreDetails storeData={dataStore.store.openHours} />
+      </StoreContext.Provider>
     </FetchHandler>
   );
 };

@@ -46,19 +46,21 @@ export interface StoreAddress {
     street: string;
     town: string;
 }
+
 export interface Store {
-    store: {
-        _id: string;
-        name: string;
-        description: string;
-        address: StoreAddress;
-        contact: string;
-        suppDay: string;
-        news: MainPageNews[];
-        gallery: Gallery[];
-        openHours: OpenHours;
-        price: StorePrice;
-    }
+    _id: string;
+    name: string;
+    description: string;
+    address: StoreAddress;
+    contact: string;
+    suppDay: string;
+    news: MainPageNews[];
+    gallery: Gallery[];
+    openHours: OpenHours;
+    price: StorePrice;
+}
+export interface StoreData {
+    store: Store
 }
 
 export interface Gallery {
@@ -105,23 +107,42 @@ export const defaultTown = {
 }
 
 export const defaultStore = {
-    store: {
-        _id: '',
-        name: '',
-        description: '',
-        address: {
-            street: '',
-            town: '',
-        },
-        contact: '',
-        suppDay: '',
-        news: [],
-        gallery: [],
-        openHours: {},
-        price: {},
-    }
+    _id: '',
+    name: '',
+    description: '',
+    address: {
+        street: '',
+        town: '',
+    },
+    contact: '',
+    suppDay: '',
+    news: [],
+    gallery: [],
+    openHours: {
+        monday: '',
+        tuesday: '',
+        wednesday: '',
+        thursday: '',
+        friday: '',
+        saturday: '',
+        sunday: '',
+    },
+    price: {
+        monday: 0,
+        tuesday: 0,
+        wednesday: 0,
+        thursday: 0,
+        friday: 0,
+        saturday: 0,
+        sunday: 0,
+    },
+}
+
+export const defaultStoreData = {
+    store: defaultStore
 
 }
 
+export const weekDays: string[] = ['Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota', 'Niedziela'];
 
 export type TParams = { townId: string; storeId: string };

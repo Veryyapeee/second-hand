@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 import UnderlineTitle from "Atoms/UnderlineTitle/UnderlineTitle";
 import PaginationButton from "Atoms/PaginationButton/PaginationButton";
+import EmptyNotification from "Atoms/EmptyNotification/EmptyNotification";
 
 import styles from "./NewsTemplate.module.scss";
 
@@ -45,29 +46,35 @@ const NewsTemplate: React.FC<Props> = ({ children }) => {
     <div className={styles.mainCon}>
       <div className={styles.wrapper}>
         <UnderlineTitle>Aktualności</UnderlineTitle>
-        <div className={styles.outerContainer}>
-          <div className={styles.newsContainer}>
-            <motion.div
-              animate={changePage ? "closed" : "open"}
-              variants={variants}
-              className={styles.newsInnerContainer}
-              style={{
-                display: changePage ? "none" : "grid",
-              }}
-            >
-              {pagination(children, currentIndex)}
-            </motion.div>
-          </div>
-        </div>
-        <div className={styles.buttonCon}>
-          {currentIndex < children.length - 3 && (
-            <PaginationButton clicked={goNext}>Następne</PaginationButton>
-          )}
+        {children.length < 1 ? (
+          <EmptyNotification>Brak aktualności</EmptyNotification>
+        ) : (
+          <>
+            <div className={styles.outerContainer}>
+              <div className={styles.newsContainer}>
+                <motion.div
+                  animate={changePage ? "closed" : "open"}
+                  variants={variants}
+                  className={styles.newsInnerContainer}
+                  style={{
+                    display: changePage ? "none" : "grid",
+                  }}
+                >
+                  {pagination(children, currentIndex)}
+                </motion.div>
+              </div>
+            </div>
+            <div className={styles.buttonCon}>
+              {currentIndex < children.length - 3 && (
+                <PaginationButton clicked={goNext}>Następne</PaginationButton>
+              )}
 
-          {currentIndex !== 0 && (
-            <PaginationButton clicked={goBack}>Poprzednie</PaginationButton>
-          )}
-        </div>
+              {currentIndex !== 0 && (
+                <PaginationButton clicked={goBack}>Poprzednie</PaginationButton>
+              )}
+            </div>{" "}
+          </>
+        )}
       </div>
     </div>
   );

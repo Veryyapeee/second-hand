@@ -19,7 +19,7 @@ const getWindowWidth = (): number => {
 
 // Animation from framer-motion
 const variants = {
-  open: { opacity: 1, y: 0, height: "auto", display: "block" },
+  open: { opacity: 1, y: 0, height: "auto", display: "flex" },
   closed: {
     opacity: 0,
     y: "-100%",

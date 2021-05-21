@@ -1,0 +1,11 @@
+@import "Styles/variables.scss";
+
+.emptyNot {
+  display: flex;
+  justify-content: center;
+  font-family: $fontRubik;
+  padding: 2em;
+  font-size: 1.2em;
+  color: $fontBlue;
+  font-weight: 500;
+}
