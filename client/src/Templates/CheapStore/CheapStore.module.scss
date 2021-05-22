@@ -1,9 +1,16 @@
-.mainContainer {
-  padding: 3em 6em;
+.mainWrapper {
   display: flex;
   flex-direction: column;
-  gap: 3em;
-  .storeInnerData {
+  gap: 2em;
+  .cheapStoreIntro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.5em;
+    font-size: 1.3em;
+  }
+  .cheapStoreDetails {
     display: flex;
     flex-direction: row;
     justify-content: center;
