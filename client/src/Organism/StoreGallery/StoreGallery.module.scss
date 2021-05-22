@@ -1,2 +1,24 @@
+@import "Styles/variables.scss";
+
 .galleryCon {
+  height: 14em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
+  .image {
+    background-position: center;
+    background-size: cover;
+    border-radius: 0.5em;
+    box-shadow: $lightShadow;
+    height: 100%;
+    width: 100%;
+  }
+  .paginationButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+  }
 }

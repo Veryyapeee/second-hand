@@ -20,7 +20,9 @@ const StoreDetails: React.FC<Props> = ({ storeData }) => {
         <PricesStore price={storeData.store.price} />
       </div>
       {storeData.cheapStore && <CheapStore cheapStore={storeData.cheapStore} />}
-      <StoreGallery gallery={storeData.store.gallery} />
+      {storeData.store.gallery.length > 0 && (
+        <StoreGallery gallery={storeData.store.gallery} />
+      )}
     </div>
   );
 };
