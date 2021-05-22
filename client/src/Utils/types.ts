@@ -59,8 +59,22 @@ export interface Store {
     openHours: OpenHours;
     price: StorePrice;
 }
+
+export interface CheapStorePrice {
+    shoes: number,
+    shirt: number,
+    socks: number,
+}
+export interface CheapStore {
+    _id: string;
+    description: string;
+    openHours: OpenHours;
+    price: CheapStorePrice
+}
+
 export interface StoreData {
-    store: Store
+    store: Store,
+    cheapStore?: CheapStore,
 }
 
 export interface Gallery {
@@ -140,9 +154,9 @@ export const defaultStore = {
 
 export const defaultStoreData = {
     store: defaultStore
-
 }
 
 export const weekDays: string[] = ['Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota', 'Niedziela'];
+export const cheapStoreCargo: string[] = ['Buty', 'Koszulki', 'Skarpetki'];
 
 export type TParams = { townId: string; storeId: string };

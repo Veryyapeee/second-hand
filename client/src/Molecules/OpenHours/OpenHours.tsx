@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 
 import UnderlineTitle from "Atoms/UnderlineTitle/UnderlineTitle";
 import SubTextBlack from "Atoms/SubTextBlack/SubTextBlack";
@@ -8,17 +8,18 @@ import Card from "Atoms/Card/Card";
 
 import styles from "./OpenHours.module.scss";
 
-import { StoreContext } from "Pages/Store/Store";
+import { OpenHours, weekDays } from "Utils/types";
 
-import { weekDays } from "Utils/types";
+interface Props {
+  openHours: OpenHours;
+}
 
-const OpenTime: React.FC = () => {
-  const storeData = useContext(StoreContext);
+const OpenTime: React.FC<Props> = ({ openHours }) => {
   // Create array from an object
   const hoursArray: String[] = [];
-  let key: keyof typeof storeData.openHours;
-  for (key in storeData.openHours) {
-    hoursArray.push(storeData.openHours[key]);
+  let key: keyof typeof openHours;
+  for (key in openHours) {
+    hoursArray.push(openHours[key]);
   }
   return (
     <Card>

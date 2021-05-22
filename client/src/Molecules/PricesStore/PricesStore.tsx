@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 
 import UnderlineTitle from "Atoms/UnderlineTitle/UnderlineTitle";
 import SubTextBlack from "Atoms/SubTextBlack/SubTextBlack";
@@ -8,16 +8,17 @@ import Card from "Atoms/Card/Card";
 
 import styles from "./PricesStore.module.scss";
 
-import { StoreContext } from "Pages/Store/Store";
+import { StorePrice, weekDays } from "Utils/types";
 
-import { weekDays } from "Utils/types";
+interface Props {
+  price: StorePrice;
+}
 
-const PricesStore = () => {
-  const storeData = useContext(StoreContext);
+const PricesStore: React.FC<Props> = ({ price }) => {
   const pricesArray: number[] = [];
-  let key: keyof typeof storeData.price;
-  for (key in storeData.price) {
-    pricesArray.push(storeData.price[key]);
+  let key: keyof typeof price;
+  for (key in price) {
+    pricesArray.push(price[key]);
   }
   return (
     <Card>
