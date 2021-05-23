@@ -11,6 +11,7 @@ const ClientTemplate = React.lazy(
 );
 const Town = React.lazy(() => import("Pages/Town/Town"));
 const Store = React.lazy(() => import("Pages/Store/Store"));
+const CV = React.lazy(() => import("Pages/CV/CV"));
 
 const Hello = () => {
   return <span>Protected</span>;
@@ -39,6 +40,7 @@ const App: React.FC = () => {
           render={() => (
             <ClientTemplate>
               <Switch>
+                <Route exact path="/home/cv" component={CV} />
                 <Route exact path="/home/mainPage" component={MainPage} />
                 <Route
                   exact

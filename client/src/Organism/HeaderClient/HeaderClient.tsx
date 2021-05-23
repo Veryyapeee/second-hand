@@ -24,7 +24,7 @@ const HeaderClient: React.FC<Props> = ({ towns }) => {
           )}
         </div>
       ))}
-      <HeaderButton path="/work">Pracuj u nas!</HeaderButton>
+      <HeaderButton path="/home/cv">Pracuj u nas!</HeaderButton>
     </Header>
   );
 };
