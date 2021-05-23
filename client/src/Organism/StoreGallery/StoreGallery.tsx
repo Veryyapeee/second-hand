@@ -1,11 +1,18 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
-import styles from "./StoreGallery.module.scss";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faAngleRight, faAngleLeft } from "@fortawesome/free-solid-svg-icons";
+
+import CenterBlueTitle from "Atoms/CenterBlueTitle/CenterBlueTitle";
+import GalleryPaginationButton from "Atoms/GalleryPaginationButton/GalleryPaginationButton";
 
 import { Gallery } from "Utils/types";
 import { instance } from "Axios/axiosMain";
-import CenterBlueTitle from "Atoms/CenterBlueTitle/CenterBlueTitle";
-import { motion } from "framer-motion";
+
+import styles from "./StoreGallery.module.scss";
+
+library.add(faAngleRight, faAngleLeft);
 
 const variants = {
   open: { x: 0, opacity: 1, transition: { stiffness: 200 } },
@@ -60,8 +67,15 @@ const StoreGallery: React.FC<Props> = ({ gallery }) => {
         }}
       ></motion.div>
       <div className={styles.paginationButtons}>
-        <button onClick={() => next()}>next</button>
-        <button onClick={() => prev()}>prev</button>
+        <GalleryPaginationButton clicked={() => prev()} disable={currIndex < 1}>
+          {faAngleLeft}
+        </GalleryPaginationButton>
+        <GalleryPaginationButton
+          clicked={() => next()}
+          disable={currIndex === replacedPaths.length - 1}
+        >
+          {faAngleRight}
+        </GalleryPaginationButton>
       </div>
     </div>
   );

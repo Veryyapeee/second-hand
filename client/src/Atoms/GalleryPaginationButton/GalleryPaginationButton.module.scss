@@ -1,0 +1,15 @@
+@import "Styles/variables.scss";
+
+.btnWrapper {
+  font-size: 1.5em;
+  &:hover {
+    color: $fontBlue;
+    cursor: pointer;
+  }
+}
+
+.disableButton {
+  font-size: 1.5em;
+  pointer-events: none;
+  color: rgba(0, 0, 0, 0.4);
+}

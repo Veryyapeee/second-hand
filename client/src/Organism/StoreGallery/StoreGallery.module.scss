@@ -1,7 +1,7 @@
 @import "Styles/variables.scss";
 
 .galleryCon {
-  height: 14em;
+  height: 16em;
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -16,9 +16,9 @@
     width: 100%;
   }
   .paginationButtons {
+    width: 20%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5em;
+    flex-direction: row;
+    justify-content: space-between;
   }
 }
