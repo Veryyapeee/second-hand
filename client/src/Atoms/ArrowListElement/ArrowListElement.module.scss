@@ -1,0 +1,12 @@
+@import "Styles/variables.scss";
+
+.listElement {
+  font-family: $fontRubik;
+  font-size: 0.9em;
+  &::before {
+    content: "\f105";
+    font-family: $fontAwesome;
+    padding: 0 0.5em 0 0;
+    font-weight: 900;
+  }
+}
