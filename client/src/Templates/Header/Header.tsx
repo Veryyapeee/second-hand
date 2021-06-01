@@ -58,7 +58,7 @@ const HeaderClient: React.FC<Props> = ({ children }) => {
         animate={!sideBar && windowWidth <= 900 ? "closed" : "open"}
         variants={variants}
         className={styles.navElements}
-        initial={{ display: "none", opacity: 0 }}
+        initial={{ display: "none", opacity: 0, height: 0 }}
         style={{
           display: !sideBar && windowWidth <= 900 ? "none" : "flex",
         }}

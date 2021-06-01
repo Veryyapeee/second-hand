@@ -20,26 +20,31 @@ const pagination = (data: JSX.Element[], index: number) => {
 };
 
 const variants = {
-  open: { x: 0 },
-  closed: { x: "-100%" },
+  open: { x: 0, opacity: 1, transition: { stiffness: 200 } },
+  closedRight: { x: "-100%", opacity: 0 },
+  closedLeft: { x: "100%", opacity: 0 },
 };
 
 const NewsTemplate: React.FC<Props> = ({ children }) => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const [changePage, setChangePage] = useState<boolean>(false);
+  const [swipeLeft, setSwipeLeft] = useState<boolean>(false);
+  const [swipeRight, setSwipeRight] = useState<boolean>(false);
+
   const goNext = () => {
     setCurrentIndex((prevState) => prevState + 3);
-    setChangePage(true);
+
+    setSwipeLeft(true);
     setTimeout(() => {
-      setChangePage(false);
-    }, 100);
+      setSwipeLeft(false);
+    }, 200);
   };
   const goBack = () => {
     setCurrentIndex((prevState) => prevState - 3);
-    setChangePage(true);
+
+    setSwipeRight(true);
     setTimeout(() => {
-      setChangePage(false);
-    }, 100);
+      setSwipeRight(false);
+    }, 200);
   };
 
   return (
@@ -53,11 +58,17 @@ const NewsTemplate: React.FC<Props> = ({ children }) => {
             <div className={styles.outerContainer}>
               <div className={styles.newsContainer}>
                 <motion.div
-                  animate={changePage ? "closed" : "open"}
+                  animate={
+                    swipeLeft
+                      ? "closedLeft"
+                      : swipeRight
+                      ? "closedRight"
+                      : "open"
+                  }
                   variants={variants}
                   className={styles.newsInnerContainer}
                   style={{
-                    display: changePage ? "none" : "grid",
+                    visibility: swipeLeft || swipeRight ? "hidden" : "visible",
                   }}
                 >
                   {pagination(children, currentIndex)}
